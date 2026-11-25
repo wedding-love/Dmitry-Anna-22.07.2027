@@ -56,7 +56,7 @@
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background-image: url('Захват20261123225728.png');
+            background-image: url('Захват20261123225728.pngыфцвфа - Дима Колесов.png');
             background-size: cover;
             background-position: center 30%;
             opacity: 0;
@@ -194,10 +194,13 @@
         .line { width: 1px; background: #1a1a1a; height: 60px; margin: 0 auto; opacity: 0; transform: scaleY(0); transition: opacity 2.5s cubic-bezier(0.2,0.9,0.3,1.1), transform 2.5s cubic-bezier(0.2,0.9,0.3,1.1); }
         .line-top { margin-bottom: 30px; transform-origin: top; }
         .line-bottom { margin-top: 30px; margin-bottom: 50px; transform-origin: bottom; }
+
+        .dates-row { display: flex; flex-direction: column; gap: 22px; align-items: center; margin: 5px 0 10px; }
+        .date-item { display: flex; flex-direction: column; align-items: center; }
         .date-block { display: flex; flex-direction: row; justify-content: center; align-items: baseline; gap: 5px; }
         .date-number {
             font-family: 'Bodoni Moda', 'Playfair Display', serif;
-            font-size: clamp(2.8rem, 6.5vw, 3.5rem);
+            font-size: clamp(2.4rem, 5.5vw, 3rem);
             font-weight: 400;
             color: #1a1a1a;
             line-height: 0.9;
@@ -206,22 +209,42 @@
         .from-left-1, .from-left-2 { transform: translateX(-100px); transition: opacity 2.5s cubic-bezier(0.2,0.9,0.3,1.1), transform 2.5s cubic-bezier(0.2,0.9,0.3,1.1); }
         .from-right { transform: translateX(100px); transition: opacity 2.5s cubic-bezier(0.2,0.9,0.3,1.1), transform 2.5s cubic-bezier(0.2,0.9,0.3,1.1); }
         .dot { font-size: 1.3rem; color: #1a1a1a; margin: 0 3px; opacity: 0; transition: opacity 2s ease; }
-
-        .date-note {
+        .date-label {
             font-family: 'Montserrat', sans-serif;
             font-size: 0.7rem;
-            font-weight: 300;
-            letter-spacing: 1px;
-            color: #888;
-            text-align: center;
-            margin-top: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #999;
+            margin-top: 6px;
+            font-weight: 500;
             opacity: 0;
             transition: opacity 2s ease;
         }
-        .date-note.visible { opacity: 1; }
+        .date-label.visible { opacity: 1; }
 
-        .calendar-section { max-width: 280px; margin: 0 auto; opacity: 0; transform: translateY(120px); transition: opacity 3.5s cubic-bezier(0.16,1,0.3,1.1), transform 3.5s cubic-bezier(0.16,1,0.3,1.1); }
-        .calendar-month { font-family: 'Bodoni Moda', 'Playfair Display', serif; font-size: 1.3rem; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 20px; }
+        .calendar-pair {
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
+            align-items: center;
+            max-width: 280px;
+            margin: 0 auto;
+        }
+        .calendar-section {
+            max-width: 280px;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(60px);
+            transition: opacity 3.5s cubic-bezier(0.16,1,0.3,1.1), transform 3.5s cubic-bezier(0.16,1,0.3,1.1);
+        }
+        .calendar-section.visible { opacity: 1; transform: translateY(0); }
+        .calendar-label {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 1.4rem;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .calendar-month { font-family: 'Bodoni Moda', 'Playfair Display', serif; font-size: 1.15rem; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 18px; }
         .calendar-grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 12px 6px; }
         .weekday { font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 400; color: #999; text-transform: lowercase; }
         .day { font-family: 'Montserrat', sans-serif; font-size: 0.9rem; font-weight: 300; color: #1a1a1a; position: relative; height: 28px; display: flex; justify-content: center; align-items: center; }
@@ -232,7 +255,6 @@
         .line.visible { opacity: 0.6; transform: scaleY(1); }
         .date-number.visible { opacity: 1; transform: translateX(0); }
         .dot.visible { opacity: 1; }
-        .calendar-section.visible { opacity: 1; transform: translateY(0); }
 
         .location-section {
             position: relative;
@@ -248,7 +270,7 @@
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background-image: url('1.jpg');
+            background-image: url('1.jpgыувапуык - Дима Колесов.jpg');
             background-size: cover;
             background-position: center;
             opacity: 0;
@@ -322,13 +344,19 @@
             margin-bottom: 25px;
         }
         .timeline-middle-line { width: 1px; background: #b5b5b5; margin: 0 auto 30px auto; height: 50px; }
-        .timeline-list { margin: 35px 0 25px; }
-        .timeline-item { margin: 35px 0; opacity: 0; transition: opacity 0.8s cubic-bezier(0.2,0.9,0.3,1.1), transform 0.8s cubic-bezier(0.2,0.9,0.3,1.1); }
+        .timeline-day-title {
+            font-family: 'Pinyon Script', cursive;
+            font-size: 1.6rem;
+            color: #1a1a1a;
+            margin: 35px 0 15px;
+        }
+        .timeline-day-title:first-of-type { margin-top: 20px; }
+        .timeline-list { margin: 15px 0 25px; }
+        .timeline-item { margin: 22px 0; opacity: 0; transition: opacity 0.8s cubic-bezier(0.2,0.9,0.3,1.1), transform 0.8s cubic-bezier(0.2,0.9,0.3,1.1); }
         .timeline-item.slide-left { transform: translateX(-40px); }
         .timeline-item.slide-right { transform: translateX(40px); }
         .timeline-item.visible { opacity: 1; transform: translateX(0); }
-        .timeline-item .timeline-date { font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: #888; margin-bottom: 6px; }
-        .timeline-item .time { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 500; margin-bottom: 6px; }
+        .timeline-item .time { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 500; margin-bottom: 4px; }
         .timeline-item .timeline-desc { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 400; color: #333; max-width: 300px; margin: 0 auto; }
 
         .dresscode-screen { background: #fff; padding: 40px 16px 60px; }
@@ -518,21 +546,22 @@
         }
         .rsvp-screen.visible { opacity: 1; transform: translateY(0); }
         .rsvp-container { max-width: 500px; margin: 0 auto; background: #ffffff; padding: 40px 30px; box-shadow: none; }
-        .rsvp-title { font-family: 'Lighthaus', 'Quicksand', sans-serif; font-size: 32px; text-transform: uppercase; letter-spacing: 3px; color: #1a1a1a; margin-bottom: 10px; text-align: center; }
-        .rsvp-deadline {
+        .rsvp-title { font-family: 'Lighthaus', 'Quicksand', sans-serif; font-size: 32px; text-transform: uppercase; letter-spacing: 3px; color: #1a1a1a; margin-bottom: 20px; text-align: center; }
+        .rsvp-intro {
             font-family: 'Montserrat', sans-serif;
-            font-size: 12px;
-            font-weight: 400;
-            letter-spacing: 1px;
-            text-align: center;
+            font-size: 13px;
+            font-weight: 300;
+            line-height: 1.7;
             color: #555;
+            text-align: center;
             margin-bottom: 35px;
-            padding-bottom: 15px;
+            padding-bottom: 20px;
             border-bottom: 1px solid #eee;
         }
-        .form-group { margin-bottom: 25px; }
-        .form-group label { display: block; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; color: #1a1a1a; }
-        .form-group input, .form-group select {
+        .rsvp-intro strong { font-weight: 500; color: #1a1a1a; }
+        .form-group { margin-bottom: 28px; }
+        .form-group label { display: block; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 12px; color: #1a1a1a; line-height: 1.5; }
+        .form-group input[type="text"], .form-group select {
             width: 100%;
             padding: 12px 0;
             border: none;
@@ -544,15 +573,14 @@
             outline: none;
             color: #1a1a1a;
         }
-        .form-group select option { color: #1a1a1a; background: #ffffff; }
-        .form-group input:focus, .form-group select:focus { border-bottom-color: #1a1a1a; }
-        .form-group input::placeholder { color: #aaa; }
-        .radio-group { display: flex; gap: 25px; margin-top: 8px; flex-wrap: wrap; }
-        .radio-group label { display: flex; align-items: center; gap: 8px; font-weight: 400; text-transform: none; font-size: 14px; color: #1a1a1a; }
-        .radio-group input { width: auto; margin: 0; accent-color: #1a1a1a; }
-        .checkbox-group { display: flex; flex-direction: column; gap: 8px; margin-top: 8px; }
-        .checkbox-group label { display: flex; align-items: center; gap: 8px; font-weight: 400; text-transform: none; font-size: 14px; color: #1a1a1a; }
-        .checkbox-group input { width: auto; margin: 0; accent-color: #1a1a1a; }
+        .form-group input[type="text"]:focus { border-bottom-color: #1a1a1a; }
+        .form-group input[type="text"]::placeholder { color: #aaa; }
+        .radio-group { display: flex; flex-direction: column; gap: 12px; margin-top: 4px; }
+        .radio-group label { display: flex; align-items: center; gap: 10px; font-weight: 400; font-size: 14px; color: #1a1a1a; margin-bottom: 0; cursor: pointer; }
+        .radio-group input { width: auto; margin: 0; accent-color: #1a1a1a; flex-shrink: 0; }
+        .checkbox-group { display: flex; flex-direction: column; gap: 12px; margin-top: 4px; }
+        .checkbox-group label { display: flex; align-items: center; gap: 10px; font-weight: 400; font-size: 14px; color: #1a1a1a; margin-bottom: 0; cursor: pointer; }
+        .checkbox-group input { width: auto; margin: 0; accent-color: #1a1a1a; flex-shrink: 0; }
         .submit-btn {
             display: block;
             width: 100%;
@@ -698,20 +726,49 @@
         <h1 class="title">ДОРОГИЕ<br>ДРУЗЬЯ!</h1>
         <p class="description-text">Это официальное приглашение на нашу свадьбу! А получили вы его потому, что мы очень хотим видеть вас в этот день рядом с нами!</p>
         <div class="line line-top"></div>
-        <div class="date-block">
-            <span class="date-number from-left-1">21</span><span class="dot">.</span><span class="date-number from-right">07</span><span class="dot">.</span><span class="date-number from-left-2">27</span>
+
+        <div class="dates-row">
+            <div class="date-item">
+                <div class="date-block">
+                    <span class="date-number from-left-1">21</span><span class="dot">.</span><span class="date-number from-right">07</span><span class="dot">.</span><span class="date-number from-left-2">27</span>
+                </div>
+                <div class="date-label" id="label1">Роспись</div>
+            </div>
+            <div class="date-item">
+                <div class="date-block">
+                    <span class="date-number from-left-1">22</span><span class="dot">.</span><span class="date-number from-right">07</span><span class="dot">.</span><span class="date-number from-left-2">27</span>
+                </div>
+                <div class="date-label" id="label2">Банкет</div>
+            </div>
         </div>
-        <div class="date-note" id="dateNote">Роспись — 21.07.2027 · Банкет — 22.07.2027</div>
+
         <div class="line line-bottom"></div>
-        <div class="calendar-section">
-            <div class="calendar-month">Июль</div>
-            <div class="calendar-grid">
-                <div class="weekday">пн</div><div class="weekday">вт</div><div class="weekday">ср</div><div class="weekday">чт</div><div class="weekday">пт</div><div class="weekday">сб</div><div class="weekday">вс</div>
-                <div class="day empty-day"></div><div class="day empty-day"></div><div class="day empty-day"></div><div class="day">1</div><div class="day">2</div><div class="day">3</div><div class="day">4</div>
-                <div class="day">5</div><div class="day">6</div><div class="day">7</div><div class="day">8</div><div class="day">9</div><div class="day">10</div><div class="day">11</div>
-                <div class="day">12</div><div class="day">13</div><div class="day">14</div><div class="day">15</div><div class="day">16</div><div class="day">17</div><div class="day">18</div>
-                <div class="day">19</div><div class="day">20</div><div class="day special-day">21<svg class="heart-svg" viewBox="0 0 50 50"><path class="heart-path" d="M25,15 C21,8 11,9 11,18 C11,27 23,36 25,38 C27,36 39,27 39,18 C39,9 29,8 25,15 Z"/></svg></div><div class="day special-day">22<svg class="heart-svg" viewBox="0 0 50 50"><path class="heart-path" d="M25,15 C21,8 11,9 11,18 C11,27 23,36 25,38 C27,36 39,27 39,18 C39,9 29,8 25,15 Z"/></svg></div><div class="day">23</div><div class="day">24</div><div class="day">25</div>
-                <div class="day">26</div><div class="day">27</div><div class="day">28</div><div class="day">29</div><div class="day">30</div><div class="day">31</div><div class="day empty-day"></div>
+
+        <div class="calendar-pair">
+            <div class="calendar-section" id="calendar1">
+                <div class="calendar-label">Роспись</div>
+                <div class="calendar-month">Июль 2027</div>
+                <div class="calendar-grid">
+                    <div class="weekday">пн</div><div class="weekday">вт</div><div class="weekday">ср</div><div class="weekday">чт</div><div class="weekday">пт</div><div class="weekday">сб</div><div class="weekday">вс</div>
+                    <div class="day empty-day"></div><div class="day empty-day"></div><div class="day empty-day"></div><div class="day">1</div><div class="day">2</div><div class="day">3</div><div class="day">4</div>
+                    <div class="day">5</div><div class="day">6</div><div class="day">7</div><div class="day">8</div><div class="day">9</div><div class="day">10</div><div class="day">11</div>
+                    <div class="day">12</div><div class="day">13</div><div class="day">14</div><div class="day">15</div><div class="day">16</div><div class="day">17</div><div class="day">18</div>
+                    <div class="day">19</div><div class="day">20</div><div class="day special-day">21<svg class="heart-svg" viewBox="0 0 50 50"><path class="heart-path" d="M25,15 C21,8 11,9 11,18 C11,27 23,36 25,38 C27,36 39,27 39,18 C39,9 29,8 25,15 Z"/></svg></div><div class="day">22</div><div class="day">23</div><div class="day">24</div><div class="day">25</div>
+                    <div class="day">26</div><div class="day">27</div><div class="day">28</div><div class="day">29</div><div class="day">30</div><div class="day">31</div><div class="day empty-day"></div>
+                </div>
+            </div>
+
+            <div class="calendar-section" id="calendar2">
+                <div class="calendar-label">Банкет</div>
+                <div class="calendar-month">Июль 2027</div>
+                <div class="calendar-grid">
+                    <div class="weekday">пн</div><div class="weekday">вт</div><div class="weekday">ср</div><div class="weekday">чт</div><div class="weekday">пт</div><div class="weekday">сб</div><div class="weekday">вс</div>
+                    <div class="day empty-day"></div><div class="day empty-day"></div><div class="day empty-day"></div><div class="day">1</div><div class="day">2</div><div class="day">3</div><div class="day">4</div>
+                    <div class="day">5</div><div class="day">6</div><div class="day">7</div><div class="day">8</div><div class="day">9</div><div class="day">10</div><div class="day">11</div>
+                    <div class="day">12</div><div class="day">13</div><div class="day">14</div><div class="day">15</div><div class="day">16</div><div class="day">17</div><div class="day">18</div>
+                    <div class="day">19</div><div class="day">20</div><div class="day">21</div><div class="day special-day">22<svg class="heart-svg" viewBox="0 0 50 50"><path class="heart-path" d="M25,15 C21,8 11,9 11,18 C11,27 23,36 25,38 C27,36 39,27 39,18 C39,9 29,8 25,15 Z"/></svg></div><div class="day">23</div><div class="day">24</div><div class="day">25</div>
+                    <div class="day">26</div><div class="day">27</div><div class="day">28</div><div class="day">29</div><div class="day">30</div><div class="day">31</div><div class="day empty-day"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -731,16 +788,40 @@
     <div class="timeline-container">
         <h2 class="timeline-main-title">Тайминг</h2>
         <div class="timeline-middle-line"></div>
+
+        <div class="timeline-day-title">21 июля — Роспись</div>
         <div class="timeline-list">
             <div class="timeline-item slide-left">
-                <div class="timeline-date">21 июля 2027</div>
                 <div class="time">18:00 / 18:20</div>
                 <div class="timeline-desc">Сбор гостей. Начало регистрации</div>
             </div>
+            <div class="timeline-item slide-left">
+                <div class="time">18:40</div>
+                <div class="timeline-desc">Фотографирование с гостями у ЗАГСа</div>
+            </div>
+            <div class="timeline-item slide-left">
+                <div class="time">20:00</div>
+                <div class="timeline-desc">Окончание вечера</div>
+            </div>
+        </div>
+
+        <div class="timeline-day-title">22 июля — Банкет</div>
+        <div class="timeline-list">
             <div class="timeline-item slide-right">
-                <div class="timeline-date">22 июля 2027</div>
                 <div class="time">16:00</div>
-                <div class="timeline-desc">Приветственный фуршет</div>
+                <div class="timeline-desc">Встреча гостей, фуршет</div>
+            </div>
+            <div class="timeline-item slide-right">
+                <div class="time">17:00</div>
+                <div class="timeline-desc">Выездная церемония</div>
+            </div>
+            <div class="timeline-item slide-right">
+                <div class="time">18:00</div>
+                <div class="timeline-desc">Банкет</div>
+            </div>
+            <div class="timeline-item slide-right">
+                <div class="time">23:00</div>
+                <div class="timeline-desc">Окончание вечера</div>
             </div>
         </div>
     </div>
@@ -807,46 +888,64 @@
 <div class="rsvp-screen" id="rsvpScreen">
     <div class="rsvp-container">
         <h2 class="rsvp-title">Анкета гостя</h2>
-        <div class="rsvp-deadline">Просим ответить до 15.06.2027</div>
+        <div class="rsvp-intro">
+            Тогда вот вопросики 🙈<br><br>
+            Чтобы мы могли сделать праздник незабываемым, ответьте, пожалуйста, на несколько вопросов <strong>до 15.06.2027</strong>
+        </div>
         <form id="guestForm">
             <div class="form-group">
-                <label>Ваше имя и фамилия</label>
+                <label>Ваши имя и фамилия</label>
                 <input type="text" id="guestName" placeholder="Например, Анна Петрова" required>
             </div>
+
             <div class="form-group">
-                <label>Планируете присутствовать?</label>
-                <div class="radio-group">
-                    <label><input type="radio" name="attendance" value="yes" required> Да, с радостью!</label>
-                    <label><input type="radio" name="attendance" value="no"> К сожалению, нет</label>
-                </div>
-            </div>
-            <div class="form-group">
-                <label>Количество гостей (включая вас)</label>
-                <select id="guestCount">
-                    <option value="1">Только я</option>
-                    <option value="2">2 человека</option>
-                    <option value="3">3 человека</option>
-                    <option value="4">4 человека</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Предпочтения по напиткам</label>
+                <label>Какие напитки предпочитаете?</label>
                 <div class="checkbox-group">
-                    <label><input type="checkbox" name="drinks" value="Шампанское сухое"> Шампанское сухое</label>
-                    <label><input type="checkbox" name="drinks" value="Шампанское полусладкое"> Шампанское полусладкое</label>
                     <label><input type="checkbox" name="drinks" value="Вино белое сухое"> Вино белое сухое</label>
                     <label><input type="checkbox" name="drinks" value="Вино белое полусладкое"> Вино белое полусладкое</label>
                     <label><input type="checkbox" name="drinks" value="Вино красное полусладкое"> Вино красное полусладкое</label>
                     <label><input type="checkbox" name="drinks" value="Вино красное сухое"> Вино красное сухое</label>
+                    <label><input type="checkbox" name="drinks" value="Шампанское сухое"> Шампанское сухое</label>
+                    <label><input type="checkbox" name="drinks" value="Шампанское полусладкое"> Шампанское полусладкое</label>
                     <label><input type="checkbox" name="drinks" value="Коньяк"> Коньяк</label>
+                    <label><input type="checkbox" name="drinks" value="Водка"> Водка</label>
                     <label><input type="checkbox" name="drinks" value="Виски"> Виски</label>
                     <label><input type="checkbox" name="drinks" value="Безалкогольные напитки"> Безалкогольные напитки</label>
                 </div>
             </div>
+
             <div class="form-group">
-                <label>Ваши пожелания или комментарии (аллергии, диета, etc.)</label>
-                <input type="text" id="guestWishes" placeholder="Сообщите нам важные детали...">
+                <label>Понадобится ли Вам трансфер до места проведения свадьбы?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="transfer" value="yes"> Да</label>
+                    <label><input type="radio" name="transfer" value="no"> Нет</label>
+                </div>
             </div>
+
+            <div class="form-group">
+                <label>Будете ли Вы присутствовать на регистрации?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="registration" value="yes"> Да</label>
+                    <label><input type="radio" name="registration" value="no"> Нет</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Будете ли Вы присутствовать на банкете?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="banquet" value="yes"> Да</label>
+                    <label><input type="radio" name="banquet" value="no"> Нет</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Планируете ли Вы остаться на ночь на территории в арендованном коттедже?</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="cottage" value="yes"> Да</label>
+                    <label><input type="radio" name="cottage" value="no"> Нет</label>
+                </div>
+            </div>
+
             <button type="submit" class="submit-btn">Отправить ответ</button>
             <div id="formMessage" class="hidden-message">Спасибо! Ждём вас на нашей свадьбе</div>
         </form>
@@ -896,7 +995,7 @@
 
 <script>
     (function() {
-        // Анимация первого экрана
+        // Первый экран
         const firstObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -922,13 +1021,17 @@
                         setTimeout(() => document.querySelector('.line-top')?.classList.add('visible'), 400);
                         setTimeout(() => document.querySelectorAll('.date-number').forEach(el => el.classList.add('visible')), 700);
                         setTimeout(() => document.querySelectorAll('.dot').forEach(el => el.classList.add('visible')), 1000);
-                        setTimeout(() => document.getElementById('dateNote')?.classList.add('visible'), 1200);
+                        setTimeout(() => {
+                            document.getElementById('label1')?.classList.add('visible');
+                            document.getElementById('label2')?.classList.add('visible');
+                        }, 1200);
                         setTimeout(() => document.querySelector('.line-bottom')?.classList.add('visible'), 1400);
-                        setTimeout(() => document.querySelector('.calendar-section')?.classList.add('visible'), 1800);
+                        setTimeout(() => document.getElementById('calendar1')?.classList.add('visible'), 1800);
+                        setTimeout(() => document.getElementById('calendar2')?.classList.add('visible'), 2200);
                         observer.disconnect();
                     }
                 });
-            }, { threshold: 0.2 }).observe(secondContainer);
+            }, { threshold: 0.15 }).observe(secondContainer);
         }
 
         // Локация
@@ -946,11 +1049,13 @@
                 entries.forEach(e => {
                     if(e.isIntersecting) {
                         timeline.classList.add('visible');
-                        document.querySelectorAll('.timeline-item').forEach((item,i) => setTimeout(() => item.classList.add('visible'), [300,800][i]));
+                        document.querySelectorAll('.timeline-item').forEach((item, i) => {
+                            setTimeout(() => item.classList.add('visible'), 200 + i * 180);
+                        });
                         observer.disconnect();
                     }
                 });
-            }, { threshold: 0.5 }).observe(timeline);
+            }, { threshold: 0.3 }).observe(timeline);
         }
 
         // Дресс-код
@@ -1126,7 +1231,7 @@
         const audio = document.getElementById('bgAudio');
         const player = document.getElementById('musicPlayer');
         const musicToggle = document.getElementById('musicToggle');
-        const START_TIME = 27; // старт с 27-й секунды
+        const START_TIME = 27;
         let startedOnce = false;
 
         function seekToStart() {
@@ -1160,7 +1265,6 @@
         audio.addEventListener('play', () => player.classList.add('playing'));
         audio.addEventListener('pause', () => player.classList.remove('playing'));
 
-        // После окончания — снова с 27 секунды
         audio.addEventListener('ended', () => {
             audio.currentTime = START_TIME;
             audio.play().catch(() => {});
