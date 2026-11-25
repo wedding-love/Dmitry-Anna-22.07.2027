@@ -286,7 +286,7 @@
         .day {
             font-family: 'Montserrat', sans-serif;
             font-size: 0.9rem;
-            font-weight: 300;
+            font-weight: 300; /* НЕ ЖИРНЫЙ */
             color: #1a1a1a;
             position: relative;
             height: 32px;
@@ -297,8 +297,8 @@
         .empty-day { visibility: hidden; }
         .heart-svg {
             position: absolute;
-            width: 40px;
-            height: 40px;
+            width: 48px; /* Увеличено */
+            height: 48px; /* Увеличено */
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
@@ -306,15 +306,19 @@
             z-index: 0;
         }
         .heart-path { stroke: #1a1a1a; stroke-width: 1; fill: none; }
-        .special-day { font-weight: 600; text-shadow: 0 0 3px #fff, 0 0 3px #fff, 0 0 6px #fff; }
+        .special-day { 
+            font-weight: 400; /* Не жирный */
+            color: transparent; /* Скрываем цифру под сердцем или делаем тонкой */
+            text-shadow: none;
+        }
 
         /* МУЗЫКАЛЬНЫЙ ПЛЕЕР */
         .music-player {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
+            justify-content: center;
             background: #ffffff;
-            padding: 8px 20px 8px 8px;
+            padding: 10px 24px;
             border-radius: 40px;
             box-shadow: 0 4px 18px rgba(0,0,0,0.1);
             margin: 0 auto 40px;
@@ -322,21 +326,28 @@
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 2s cubic-bezier(0.2,0.9,0.3,1.1), transform 2s cubic-bezier(0.2,0.9,0.3,1.1), box-shadow 0.2s ease;
+            cursor: pointer;
         }
         .music-player.visible { opacity: 1; transform: translateY(0); }
         .music-toggle {
-            width: 42px; height: 42px; flex-shrink: 0; border-radius: 50%; border: none;
-            background: #1a1a1a; color: #fff; display: flex; align-items: center; justify-content: center;
-            cursor: pointer; transition: background 0.2s ease, transform 0.2s ease; padding: 0;
+            background: transparent;
+            border: none;
+            color: #1a1a1a;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            padding: 0;
         }
-        .music-toggle:hover { background: #333; transform: scale(1.05); }
-        .music-toggle svg { width: 16px; height: 16px; fill: #fff; }
+        .music-toggle svg { width: 14px; height: 14px; fill: #1a1a1a; }
         .music-toggle .icon-pause { display: none; }
         .music-player.playing .music-toggle .icon-play { display: none; }
         .music-player.playing .music-toggle .icon-pause { display: block; }
-        .music-info { min-width: 0; max-width: 230px; text-align: left; }
-        .music-label { font-family: 'Montserrat', sans-serif; font-size: 8.5px; letter-spacing: 1.4px; text-transform: uppercase; color: #999; margin-bottom: 2px; white-space: nowrap; }
-        .music-title { font-family: 'Montserrat', sans-serif; font-size: 11px; font-weight: 500; color: #1a1a1a; letter-spacing: 0.2px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
         /* ============ ЛОКАЦИЯ ============ */
         .location-section {
@@ -545,17 +556,6 @@
         @media (max-width: 580px) {
             .name-line { font-size: 2.8rem; }
             .dmitry-name { margin-left: 86px; }
-            .music-player { padding: 6px 14px 6px 6px; gap: 9px; }
-            .music-toggle { width: 36px; height: 36px; }
-            .music-toggle svg { width: 14px; height: 14px; }
-            .music-info { max-width: 170px; }
-            .music-label { display: none; }
-            .music-title { font-size: 10px; }
-        }
-        @media (max-width: 480px) {
-            .name-line { font-size: 2.4rem; }
-            .dmitry-name { margin-left: 74px; }
-            .music-info { max-width: 130px; }
         }
     </style>
 </head>
@@ -584,16 +584,13 @@
         <h1 class="title h-title anim-fade-up">ДОРОГИЕ<br>ДРУЗЬЯ!</h1>
         <p class="description-text b-text anim-fade-up">Это официальное приглашение на нашу свадьбу! А получили вы его потому, что мы очень хотим видеть вас в этот день рядом с нами!</p>
 
-        <!-- МУЗЫКА ПОД ТЕКСТОМ -->
+        <!-- МУЗЫКА (УПРОЩЕННАЯ) -->
         <div class="music-player" id="musicPlayer">
-            <button class="music-toggle" id="musicToggle" aria-label="Включить музыку">
+            <button class="music-toggle" id="musicToggle">
+                <span id="musicText">Включить музыку</span>
                 <svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                 <svg class="icon-pause" viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>
             </button>
-            <div class="music-info">
-                <div class="music-label">Свадебный саундтрек</div>
-                <div class="music-title" id="musicTitle">Женя Трофимов feat. Комната Культуры — Лёд, что поёт о любви</div>
-            </div>
         </div>
 
         <div class="line line-top"></div>
@@ -1015,10 +1012,11 @@
             });
         }
 
-        // === Музыка ===
+        // === Музыка (Простая логика) ===
         const audio = document.getElementById('bgAudio');
         const player = document.getElementById('musicPlayer');
         const musicToggle = document.getElementById('musicToggle');
+        const musicText = document.getElementById('musicText');
         const START_TIME = 27;
         let startedOnce = false;
 
@@ -1050,8 +1048,14 @@
             }
         });
 
-        audio.addEventListener('play', () => player.classList.add('playing'));
-        audio.addEventListener('pause', () => player.classList.remove('playing'));
+        audio.addEventListener('play', () => {
+            player.classList.add('playing');
+            musicText.textContent = "Выключить музыку";
+        });
+        audio.addEventListener('pause', () => {
+            player.classList.remove('playing');
+            musicText.textContent = "Включить музыку";
+        });
 
         audio.addEventListener('ended', () => {
             audio.currentTime = START_TIME;
