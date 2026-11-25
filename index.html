@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -584,6 +583,96 @@
             .name-line { font-size: 2.8rem; }
             .dmitry-name { margin-left: 86px; }
         }
+
+
+        /* ============ ЕДИНАЯ СИСТЕМА ОТСТУПОВ ============ */
+        /* Общий ритм: одинаковые вертикальные поля секций и умеренные
+           расстояния между заголовками, текстом и основным содержимым. */
+        section {
+            padding: 56px 20px;
+        }
+
+        .container,
+        .invitation-container,
+        .dresscode-container,
+        .timeline-container,
+        .rsvp-container {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .container,
+        .dresscode-container { max-width: 450px; }
+
+        .h-title,
+        .title { margin-bottom: 18px; }
+
+        .b-text {
+            margin: 0 auto 26px;
+            line-height: 1.75;
+        }
+
+        .line-top { margin-bottom: 26px; }
+        .line-bottom { margin-top: 26px; margin-bottom: 38px; }
+
+        .dates-row { gap: 18px; margin: 4px 0 8px; }
+        .calendar-pair { gap: 34px; }
+        .calendar-month { margin-bottom: 14px; }
+        .music-player { margin-bottom: 32px; }
+
+        .location-section { padding: 52px 20px; }
+        .location-card { padding: 34px 24px; }
+        .icon-scene { margin-bottom: 16px; }
+        .location-card .b-text { margin-bottom: 24px; }
+
+        .timeline-middle-line { margin-bottom: 16px; height: 42px; }
+        .timeline-day-title { margin: 24px 0 12px; }
+        .timeline-list { margin: 8px 0 16px; }
+        .timeline-item { margin: 18px 0; }
+
+        .dresscode-screen .b-text { margin-bottom: 22px; }
+        .color-palette { margin-bottom: 24px; }
+        .section-subtitle { margin: 18px auto 14px; }
+        .moodboard { height: 450px; margin-bottom: 28px; }
+        .gents { height: 450px; margin-bottom: 0; }
+
+        .gallery-screen .b-text { margin-bottom: 22px; }
+        .gallery-grid { gap: 12px; }
+
+        .wishes-screen .b-text { margin-bottom: 0; }
+
+        .form-group { margin-bottom: 24px; }
+        .form-group > label { margin-bottom: 10px; }
+        .radio-group, .checkbox-group { gap: 10px; }
+
+        .contacts-list { gap: 18px; margin-bottom: 32px; }
+        .contacts-divider { height: 38px; margin: 0 auto 24px; }
+
+        .final-block { padding: 48px 20px 60px; }
+        .final-names { margin-bottom: 24px; }
+        .pre-closing { margin-bottom: 0; }
+
+        @media (max-width: 768px) {
+            section { padding: 50px 18px; }
+            .location-section { padding: 46px 18px; }
+            .moodboard, .gents { height: 420px; }
+        }
+
+        @media (max-width: 580px) {
+            section { padding: 44px 16px; }
+            .location-section { padding: 40px 16px; }
+            .location-card { padding: 30px 20px; }
+            .calendar-pair { gap: 30px; }
+            .moodboard, .gents { height: 390px; }
+            .ladies .card-main { height: 270px; }
+            .ladies .card-right-bottom { top: 190px; height: 190px; }
+            .ladies .card-left-bottom { top: 225px; height: 190px; }
+            .gents .card-main { height: 270px; }
+            .gents .card-left-bottom { top: 215px; height: 190px; }
+            .gents .card-right-bottom { top: 195px; height: 185px; }
+        }
+
     </style>
 </head>
 <body>
