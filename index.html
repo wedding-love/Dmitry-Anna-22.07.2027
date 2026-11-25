@@ -43,7 +43,7 @@
             background-color: #ffffff;
         }
 
-        /* ============ АНИМАЦИИ (НОВАЯ ЛОГИКА) ============ */
+        /* ============ АНИМАЦИИ ============ */
         .anim-fade-up {
             opacity: 0;
             transform: translateY(40px);
@@ -297,8 +297,8 @@
         .empty-day { visibility: hidden; }
         .heart-svg {
             position: absolute;
-            width: 48px; /* Увеличено */
-            height: 48px; /* Увеличено */
+            width: 48px;
+            height: 48px;
             top: 50%;
             left: 50%;
             transform: translate(-50%,-50%);
@@ -308,8 +308,7 @@
         .heart-path { stroke: #1a1a1a; stroke-width: 1; fill: none; }
         .special-day { 
             font-weight: 400; /* Не жирный */
-            color: transparent; /* Скрываем цифру под сердцем или делаем тонкой */
-            text-shadow: none;
+            color: transparent; /* Цифра прозрачная, видно только сердце */
         }
 
         /* МУЗЫКАЛЬНЫЙ ПЛЕЕР */
@@ -505,7 +504,29 @@
         .name-item { font-family: 'Lighthaus', 'Quicksand', sans-serif; font-weight: 300; font-size: 46px; text-transform: uppercase; letter-spacing: 5px; line-height: 1.1; color: #121212; }
         .ampersand-item { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 38px; font-weight: 400; color: #121212; margin: 12px 0; }
 
-        /* ============ АНКЕТА ГОСТЯ (Вернуто выравнивание по левому краю для формы) ============ */
+        /* ============ ФИНАЛЬНЫЙ БЛОК (Имена и прощание) ============ */
+        .final-block {
+            background: #fff;
+            padding: 40px 20px 60px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(60px);
+            transition: opacity 0.9s cubic-bezier(0.25, 0.8, 0.4, 1), transform 0.9s cubic-bezier(0.25, 0.8, 0.4, 1);
+        }
+        .final-block.visible { opacity: 1; transform: translateY(0); }
+        .final-names { display: flex; flex-direction: column; align-items: center; margin-bottom: 30px; gap: 0; }
+        .final-names .name-item { font-family: 'Lighthaus', 'Quicksand', sans-serif; font-weight: 300; font-size: 46px; text-transform: uppercase; letter-spacing: 5px; line-height: 1.2; color: #121212; opacity: 0; transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.4, 1), transform 0.8s cubic-bezier(0.25, 0.8, 0.4, 1); }
+        .final-names .name-left { transform: translateX(-60px); }
+        .final-names .name-right { transform: translateX(60px); }
+        .final-block.visible .name-left { opacity: 1; transform: translateX(0); }
+        .final-block.visible .name-right { opacity: 1; transform: translateX(0); }
+        .final-names .ampersand-item { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 38px; font-weight: 400; color: #121212; opacity: 0; transition: opacity 0.8s ease 0.2s; margin: 8px 0; }
+        .final-block.visible .ampersand-item { opacity: 1; }
+        .pre-closing { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 300; letter-spacing: 1px; color: #777; margin-bottom: 30px; opacity: 0; transform: translateY(30px); transition: opacity 1.2s cubic-bezier(0.25, 0.8, 0.4, 1), transform 1.2s cubic-bezier(0.25, 0.8, 0.4, 1); }
+        .final-block.visible .pre-closing { opacity: 1; transform: translateY(0); }
+
+
+        /* ============ АНКЕТА ГОСТЯ ============ */
         .rsvp-container { max-width: 500px; margin: 0 auto; background: #ffffff; padding: 0; }
         .form-group { margin-bottom: 28px; text-align: left; }
         .form-group > label {
@@ -584,7 +605,7 @@
         <h1 class="title h-title anim-fade-up">ДОРОГИЕ<br>ДРУЗЬЯ!</h1>
         <p class="description-text b-text anim-fade-up">Это официальное приглашение на нашу свадьбу! А получили вы его потому, что мы очень хотим видеть вас в этот день рядом с нами!</p>
 
-        <!-- МУЗЫКА (УПРОЩЕННАЯ) -->
+        <!-- МУЗЫКА (Простая) -->
         <div class="music-player" id="musicPlayer">
             <button class="music-toggle" id="musicToggle">
                 <span id="musicText">Включить музыку</span>
@@ -744,20 +765,23 @@
     </div>
 </section>
 
-<!-- ПОЖЕЛАНИЯ -->
+<!-- ПОЖЕЛАНИЯ (Без "до скорой встречи") -->
 <section class="wishes-screen" id="wishesScreen">
     <div class="container">
         <h2 class="h-title anim-fade-up">Пожелания</h2>
         <p class="b-text anim-fade-up">Ваше присутствие — самый большой подарок для нас. Мы будем благодарны любому знаку внимания. Пусть это будет что-то маленькое или просто тёплые слова в конверте: мы бережно сохраним каждое пожелание, а всё остальное станет вкладом в нашу общую мечту!</p>
-        <div class="wishes-vertical-divider anim-fade-up" style="width: 1px; height: 90px; background-color: #b5b5b5; margin: 10px auto 45px auto;"></div>
-        <div class="pre-closing anim-fade-up" style="margin-bottom: 40px;">До скорой встречи!<br>С любовью</div>
-        <div class="wishes-names-block">
-            <span class="name-item anim-fade-left" id="annaWishes">Анна</span>
-            <span class="ampersand-item anim-fade-up" id="ampersandWishes">&</span>
-            <span class="name-item anim-fade-right" id="dmitryWishes">Дмитрий</span>
-        </div>
     </div>
 </section>
+
+<!-- ФИНАЛЬНЫЙ БЛОК (Имена и прощание) -->
+<div class="final-block" id="finalBlock">
+    <div class="final-names">
+        <span class="name-item name-left" id="finalAnna">Анна</span>
+        <span class="ampersand-item">&</span>
+        <span class="name-item name-right" id="finalDmitry">Дмитрий</span>
+    </div>
+    <div class="pre-closing">До скорой встречи!<br>С любовью</div>
+</div>
 
 <!-- АНКЕТА ГОСТЯ -->
 <section class="rsvp-screen" id="rsvpScreen">
@@ -963,6 +987,19 @@
                     }
                 });
             }, { threshold: 0.1 }).observe(galleryItems[0]); // Запускаем от первого элемента
+        }
+
+        // 6. Финальный блок
+        const finalBlock = document.getElementById('finalBlock');
+        if (finalBlock) {
+            new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        finalBlock.classList.add('visible');
+                        observer.disconnect();
+                    }
+                });
+            }, { threshold: 0.3 }).observe(finalBlock);
         }
 
         // === Лайтбокс ===
