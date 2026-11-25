@@ -308,7 +308,8 @@
         .heart-path { stroke: #1a1a1a; stroke-width: 1; fill: none; }
         .special-day { 
             font-weight: 400; /* Не жирный */
-            color: transparent; /* Цифра прозрачная, видно только сердце */
+            /* Цвет прозрачный, чтобы цифра не мешала сердцу, но само число остается в потоке */
+            color: transparent; 
         }
 
         /* МУЗЫКАЛЬНЫЙ ПЛЕЕР */
@@ -507,7 +508,7 @@
         /* ============ ФИНАЛЬНЫЙ БЛОК (Имена и прощание) ============ */
         .final-block {
             background: #fff;
-            padding: 40px 20px 60px;
+            padding: 60px 20px 80px;
             text-align: center;
             opacity: 0;
             transform: translateY(60px);
@@ -765,23 +766,13 @@
     </div>
 </section>
 
-<!-- ПОЖЕЛАНИЯ (Без "до скорой встречи") -->
+<!-- ПОЖЕЛАНИЯ (Без имен и прощания) -->
 <section class="wishes-screen" id="wishesScreen">
     <div class="container">
         <h2 class="h-title anim-fade-up">Пожелания</h2>
         <p class="b-text anim-fade-up">Ваше присутствие — самый большой подарок для нас. Мы будем благодарны любому знаку внимания. Пусть это будет что-то маленькое или просто тёплые слова в конверте: мы бережно сохраним каждое пожелание, а всё остальное станет вкладом в нашу общую мечту!</p>
     </div>
 </section>
-
-<!-- ФИНАЛЬНЫЙ БЛОК (Имена и прощание) -->
-<div class="final-block" id="finalBlock">
-    <div class="final-names">
-        <span class="name-item name-left" id="finalAnna">Анна</span>
-        <span class="ampersand-item">&</span>
-        <span class="name-item name-right" id="finalDmitry">Дмитрий</span>
-    </div>
-    <div class="pre-closing">До скорой встречи!<br>С любовью</div>
-</div>
 
 <!-- АНКЕТА ГОСТЯ -->
 <section class="rsvp-screen" id="rsvpScreen">
@@ -866,6 +857,16 @@
         <div class="contacts-copyright anim-fade-up">Анна и Дмитрий</div>
     </div>
 </section>
+
+<!-- ФИНАЛЬНЫЙ БЛОК (Имена и прощание - В САМОМ КОНЦУ) -->
+<div class="final-block" id="finalBlock">
+    <div class="final-names">
+        <span class="name-item name-left" id="finalAnna">Анна</span>
+        <span class="ampersand-item">&</span>
+        <span class="name-item name-right" id="finalDmitry">Дмитрий</span>
+    </div>
+    <div class="pre-closing">До скорой встречи!<br>С любовью</div>
+</div>
 
 <audio id="bgAudio" src="Женя Трофимов feat. Комната Культуры - Лед, что поет о любви (OST Челюскин Первые).mp3" preload="metadata"></audio>
 
