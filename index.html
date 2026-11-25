@@ -36,7 +36,6 @@
             width: 100%;
             overflow-x: hidden;
             scroll-behavior: smooth;
-            height: 100%;
         }
 
         body {
@@ -44,46 +43,34 @@
             background-color: #ffffff;
         }
 
-        /* ============ ОБЩИЕ КЛАССЫ АНИМАЦИИ ============ */
+        /* ============ АНИМАЦИИ (НОВАЯ ЛОГИКА) ============ */
         .anim-fade-up {
             opacity: 0;
             transform: translateY(40px);
             transition: opacity 1.5s cubic-bezier(0.25, 0.8, 0.4, 1), transform 1.5s cubic-bezier(0.25, 0.8, 0.4, 1);
         }
-        .anim-fade-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .anim-fade-up.visible { opacity: 1; transform: translateY(0); }
         
         .anim-fade-left {
             opacity: 0;
             transform: translateX(-40px);
             transition: opacity 1.5s cubic-bezier(0.25, 0.8, 0.4, 1), transform 1.5s cubic-bezier(0.25, 0.8, 0.4, 1);
         }
-        .anim-fade-left.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
+        .anim-fade-left.visible { opacity: 1; transform: translateX(0); }
 
         .anim-fade-right {
             opacity: 0;
             transform: translateX(40px);
             transition: opacity 1.5s cubic-bezier(0.25, 0.8, 0.4, 1), transform 1.5s cubic-bezier(0.25, 0.8, 0.4, 1);
         }
-        .anim-fade-right.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
+        .anim-fade-right.visible { opacity: 1; transform: translateX(0); }
 
         .anim-scale {
             opacity: 0;
-            transform: scale(0.9);
+            transform: scale(0.95);
             transition: opacity 1.5s ease, transform 1.5s ease;
         }
-        .anim-scale.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
+        .anim-scale.visible { opacity: 1; transform: scale(1); }
 
         /* ============ ПЕРВЫЙ ЭКРАН ============ */
         .first-screen {
@@ -92,15 +79,14 @@
             height: 100vh;
             height: 100dvh;
             overflow: hidden;
-            background-color: #f5f0eb; /* Светлый фон как во втором примере */
+            background-color: #ffffff;
         }
 
         .photo-bg {
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            /* Замените путь к фото на актуальный */
-            background-image: url('Захват20261123225728.pngыфцвфа - Дима Колесов.png'); 
+            background-image: url('Захват20261123225728.pngыфцвфа - Дима Колесов.png');
             background-size: cover;
             background-position: center 30%;
             opacity: 0;
@@ -149,11 +135,10 @@
             z-index: 10;
         }
         .names-lines { display: flex; flex-direction: column; align-items: flex-start; gap: 0.1rem; }
-        
         .name-line {
             font-family: 'Lighthaus', 'Quicksand', sans-serif;
             font-weight: 300;
-            font-size: clamp(2.5rem, 6vw, 4.2rem);
+            font-size: 4.2rem;
             letter-spacing: 5px;
             text-transform: uppercase;
             color: #ffffff;
@@ -171,7 +156,7 @@
             top: 52%;
             transform: translateY(-50%) scale(0.9);
             font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(4rem, 10vw, 9.5rem);
+            font-size: 9.5rem;
             font-style: italic;
             color: rgba(255,255,255,0.12);
             pointer-events: none;
@@ -208,15 +193,20 @@
         .scroll-down:hover { background: white; transform: translateX(-50%) scale(1.02); box-shadow: 0 6px 16px rgba(0,0,0,0.2); }
         .arrow-icon-svg { margin-left: 8px; width: 11px; height: 11px; stroke: #1a1a1a; }
 
-        /* ============ ОБЩИЕ СЕКЦИИ ============ */
+        /* ============ ОБЩИЕ ЭКРАНЫ ============ */
         section {
             width: 100%;
             background: #ffffff;
             padding: 60px 20px;
-            overflow: hidden; /* Важно для анимаций вылета */
+            overflow: hidden;
         }
 
-        .container { text-align: center; max-width: 450px; margin: 0 auto; }
+        .invitation-container { text-align: center; max-width: 400px; margin: 0 auto; }
+
+        .line { width: 1px; background: #1a1a1a; height: 60px; margin: 0 auto; opacity: 0; transform: scaleY(0); transition: opacity 2.5s cubic-bezier(0.2,0.9,0.3,1.1), transform 2.5s cubic-bezier(0.2,0.9,0.3,1.1); }
+        .line-top { margin-bottom: 30px; transform-origin: top; }
+        .line-bottom { margin-top: 30px; margin-bottom: 50px; transform-origin: bottom; }
+        .line.visible { opacity: 0.6; transform: scaleY(1); }
 
         /* Типографика */
         .h-title {
@@ -242,24 +232,10 @@
             margin: 0 auto 35px;
         }
 
-        .line { 
-            width: 1px; 
-            background: #1a1a1a; 
-            height: 60px; 
-            margin: 0 auto; 
-            opacity: 0; 
-            transform: scaleY(0); 
-            transition: opacity 2.5s cubic-bezier(0.2,0.9,0.3,1.1), transform 2.5s cubic-bezier(0.2,0.9,0.3,1.1); 
-        }
-        .line-top { margin-bottom: 30px; transform-origin: top; }
-        .line-bottom { margin-top: 30px; margin-bottom: 50px; transform-origin: bottom; }
-        .line.visible { opacity: 0.6; transform: scaleY(1); }
-
-        /* ============ ПРИГЛАШЕНИЕ И КАЛЕНДАРЬ ============ */
+        /* Даты */
         .dates-row { display: flex; flex-direction: column; gap: 22px; align-items: center; margin: 5px 0 10px; }
         .date-item { display: flex; flex-direction: column; align-items: center; }
         .date-block { display: flex; flex-direction: row; justify-content: center; align-items: baseline; gap: 5px; }
-        
         .date-number {
             font-family: 'Bodoni Moda', 'Playfair Display', serif;
             font-size: clamp(2.4rem, 5.5vw, 3rem);
@@ -270,12 +246,9 @@
         }
         .from-left-1, .from-left-2 { transform: translateX(-100px); transition: opacity 2.5s cubic-bezier(0.2,0.9,0.3,1.1), transform 2.5s cubic-bezier(0.2,0.9,0.3,1.1); }
         .from-right { transform: translateX(100px); transition: opacity 2.5s cubic-bezier(0.2,0.9,0.3,1.1), transform 2.5s cubic-bezier(0.2,0.9,0.3,1.1); }
-        
         .dot { font-size: 1.3rem; color: #1a1a1a; margin: 0 3px; opacity: 0; transition: opacity 2s ease; }
-        
         .date-number.visible { opacity: 1; transform: translateX(0); }
         .dot.visible { opacity: 1; }
-        
         .date-label {
             font-family: 'Montserrat', sans-serif;
             font-size: 0.7rem;
@@ -289,6 +262,7 @@
         }
         .date-label.visible { opacity: 1; }
 
+        /* Календари */
         .calendar-pair {
             display: flex;
             flex-direction: column;
@@ -305,7 +279,6 @@
             transition: opacity 3.5s cubic-bezier(0.16,1,0.3,1.1), transform 3.5s cubic-bezier(0.16,1,0.3,1.1);
         }
         .calendar-section.visible { opacity: 1; transform: translateY(0); }
-        
         .calendar-label { font-family: 'Pinyon Script', cursive; font-size: 1.4rem; color: #555; margin-bottom: 8px; }
         .calendar-month { font-family: 'Bodoni Moda', 'Playfair Display', serif; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 18px; }
         .calendar-grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 12px 6px; }
@@ -380,7 +353,6 @@
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            /* Замените путь к фото */
             background-image: url('1.jpgыувапуык - Дима Колесов.jpg');
             background-size: cover;
             background-position: center;
@@ -407,7 +379,6 @@
             transition: opacity 3s cubic-bezier(0.16,1,0.3,1.1), transform 3s cubic-bezier(0.16,1,0.3,1.1);
         }
         .btn-maps:hover { background: #333; }
-        
         .location-section.visible .location-bg { opacity: 1; }
         .location-section.visible .icon-scene { opacity: 1; transform: scale(1); }
         .location-section.visible .venue-name { opacity: 1; transform: translateY(0); }
@@ -427,7 +398,6 @@
             transition: opacity 1.5s ease, transform 1.5s ease;
         }
         .timeline-day-title.visible { opacity: 1; transform: translateY(0); }
-
         .timeline-list { margin: 10px 0 20px; }
         .timeline-item { margin: 22px 0; opacity: 0; transition: opacity 0.8s cubic-bezier(0.2,0.9,0.3,1.1), transform 0.8s cubic-bezier(0.2,0.9,0.3,1.1); }
         .timeline-item.slide-left { transform: translateX(-40px); }
@@ -524,9 +494,9 @@
         .name-item { font-family: 'Lighthaus', 'Quicksand', sans-serif; font-weight: 300; font-size: 46px; text-transform: uppercase; letter-spacing: 5px; line-height: 1.1; color: #121212; }
         .ampersand-item { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 38px; font-weight: 400; color: #121212; margin: 12px 0; }
 
-        /* ============ АНКЕТА ============ */
+        /* ============ АНКЕТА ГОСТЯ (Вернуто выравнивание по левому краю для формы) ============ */
         .rsvp-container { max-width: 500px; margin: 0 auto; background: #ffffff; padding: 0; }
-        .form-group { margin-bottom: 28px; }
+        .form-group { margin-bottom: 28px; text-align: left; }
         .form-group > label {
             display: block; font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 500;
             letter-spacing: 0.5px; margin-bottom: 12px; color: #1a1a1a; line-height: 1.5;
@@ -560,6 +530,11 @@
         .contact-info a:hover { color: #6B705C; }
         .contacts-divider { width: 1px; height: 50px; background-color: #d0d0d0; margin: 0 auto 35px; }
         .contacts-copyright { font-family: 'Montserrat', sans-serif; font-size: 10px; letter-spacing: 1.5px; color: #aaa; text-transform: uppercase; }
+
+        /* Анимации заголовков */
+        .title, .description-text { opacity: 0; transform: translateY(50px); transition: opacity 2.5s cubic-bezier(0.2,0.9,0.3,1.1), transform 2.5s cubic-bezier(0.2,0.9,0.3,1.1); }
+        .title { margin-bottom: 20px; }
+        .title.visible, .description-text.visible { opacity: 1; transform: translateY(0); }
 
         /* Медиа запросы */
         @media (max-width: 768px) {
@@ -606,10 +581,10 @@
 <!-- ПРИГЛАШЕНИЕ -->
 <section class="second-screen" id="secondScreen">
     <div class="invitation-container">
-        <h1 class="h-title anim-fade-up">ДОРОГИЕ<br>ДРУЗЬЯ!</h1>
-        <p class="b-text anim-fade-up">Это официальное приглашение на нашу свадьбу! А получили вы его потому, что мы очень хотим видеть вас в этот день рядом с нами!</p>
+        <h1 class="title h-title anim-fade-up">ДОРОГИЕ<br>ДРУЗЬЯ!</h1>
+        <p class="description-text b-text anim-fade-up">Это официальное приглашение на нашу свадьбу! А получили вы его потому, что мы очень хотим видеть вас в этот день рядом с нами!</p>
 
-        <!-- МУЗЫКА -->
+        <!-- МУЗЫКА ПОД ТЕКСТОМ -->
         <div class="music-player" id="musicPlayer">
             <button class="music-toggle" id="musicToggle" aria-label="Включить музыку">
                 <svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
@@ -903,8 +878,6 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    // Опционально: можно отключить наблюдение после появления
-                    // fadeObserver.unobserve(entry.target); 
                 }
             });
         }, { threshold: 0.15 });
@@ -921,7 +894,7 @@
             new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        // Запускаем последовательность вручную, как в референсе
+                        // Запускаем последовательность вручную
                         document.querySelector('.line-top')?.classList.add('visible');
                         setTimeout(() => document.querySelectorAll('.date-number').forEach(el => el.classList.add('visible')), 300);
                         setTimeout(() => document.querySelectorAll('.dot').forEach(el => el.classList.add('visible')), 600);
