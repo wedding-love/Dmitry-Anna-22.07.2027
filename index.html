@@ -32,7 +32,6 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* html/body с height: 100% и smooth — плавное пролистывание как в эталоне */
         html, body {
             width: 100%;
             overflow-x: hidden;
@@ -427,42 +426,13 @@
 
         /* ============ ДРЕСС-КОД ============ */
         .dresscode-container { width: 100%; max-width: 450px; margin: 0 auto; text-align: center; position: relative; }
-        .color-palette { display: block; margin: 0 auto 30px auto; font-size: 0; }
+        .color-palette { display: block; margin: 0 auto 10px auto; font-size: 0; }
         .color-circle { display: inline-block; width: 32px; height: 32px; border-radius: 50%; margin: 0 5px; box-shadow: inset 0 0 1px rgba(0,0,0,0.1); }
         .color-1 { background-color: #564028; }
         .color-2 { background-color: #717455; }
         .color-3 { background-color: #b59984; }
         .color-4 { background-color: #d6aba2; }
         .color-5 { background-color: #ffe5e4; }
-
-        .section-subtitle { margin: 25px auto 25px; }
-
-        .moodboard { position: relative; width: 100%; height: 480px; margin-bottom: 40px; }
-        .look-card {
-            position: absolute;
-            background-size: cover;
-            background-position: center;
-            background-color: #f4f4f4;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-            border-radius: 2px;
-            opacity: 0;
-            transform: scale(0.95);
-            transition: opacity 2s cubic-bezier(0.25, 0.8, 0.4, 1), transform 2s cubic-bezier(0.25, 0.8, 0.4, 1);
-        }
-        .look-card.visible-card { opacity: 1; transform: scale(1); }
-        
-        .ladies .card-main { width: 42%; height: 250px; left: 29%; top: 15px; z-index: 10; background-image: url('4C609015-2A6F-4EA1-BF29-DD86CD7C0205.jpeg'); }
-        .ladies .card-right-top { width: 27%; height: 170px; right: 0; top: 15px; z-index: 1; background-image: url('343B5D39-170F-4A4E-9CEC-8ED17D5F71F5.jpeg'); }
-        .ladies .card-left-top { width: 27%; height: 170px; left: 0; top: 50px; z-index: 2; background-image: url('3115075F-C631-4D0D-B962-88B2860CF9C2.jpeg'); }
-        .ladies .card-right-bottom { width: 36%; height: 185px; right: 3%; top: 255px; z-index: 3; background-image: url('ADECDD8D-42BF-4DCE-9D89-2B2DCD500472.jpeg'); }
-        .ladies .card-left-bottom { width: 34%; height: 185px; left: 6%; top: 255px; z-index: 4; background-image: url('EC5F4E89-5682-4567-B870-FB05EFEF32CB.jpeg'); }
-        
-        .gents { position: relative; width: 100%; height: 480px; }
-        .gents .card-main { width: 42%; height: 250px; left: 29%; top: 15px; z-index: 10; background-image: url('C3DE6E08-3A55-4858-9AEF-04D65EA458DE.jpeg'); }
-        .gents .card-left-top { width: 27%; height: 170px; left: 0; top: 50px; z-index: 1; background-image: url('0F645353-B2D5-409F-B723-FF090B98078F.jpeg'); }
-        .gents .card-right-top { width: 27%; height: 170px; right: 0; top: 15px; z-index: 4; background-image: url('4B945A56-D2CE-4E20-A0E5-C1B67C457927.jpeg'); }
-        .gents .card-left-bottom { width: 34%; height: 185px; left: 6%; top: 255px; z-index: 2; background-image: url('AC8F5888-ED27-46EE-B6EC-147C5793A1BD.jpeg'); }
-        .gents .card-right-bottom { width: 36%; height: 185px; right: 3%; top: 255px; z-index: 3; background-image: url('7F88B81C-C614-4D63-8AFB-A513F3E385B5.jpeg'); }
 
         /* ============ ФОТОГАЛЕРЕЯ ============ */
         .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
@@ -572,7 +542,6 @@
         @media (max-width: 768px) {
             .name-line { font-size: 3.4rem; }
             .dmitry-name { margin-left: 104px; }
-            .moodboard, .gents { height: 420px; }
         }
         @media (max-width: 580px) {
             .name-line { font-size: 2.8rem; }
@@ -623,10 +592,7 @@
         .timeline-item { margin: 18px 0; }
 
         .dresscode-screen .b-text { margin-bottom: 22px; }
-        .color-palette { margin-bottom: 24px; }
-        .section-subtitle { margin: 18px auto 14px; }
-        .moodboard { height: 465px; margin-bottom: 28px; }
-        .gents { height: 465px; margin-bottom: 0; }
+        .color-palette { margin-bottom: 10px; }
 
         .gallery-screen .b-text { margin-bottom: 22px; }
         .gallery-grid { gap: 12px; }
@@ -647,13 +613,6 @@
         @media (max-width: 768px) {
             section { padding: 50px 18px; }
             .location-section { padding: 46px 18px; }
-            .moodboard, .gents { height: 435px; }
-
-            .ladies .card-main, .gents .card-main { height: 235px; top: 15px; }
-            .ladies .card-left-top, .gents .card-left-top { height: 155px; top: 45px; }
-            .ladies .card-right-top, .gents .card-right-top { height: 155px; top: 12px; }
-            .ladies .card-left-bottom, .gents .card-left-bottom { height: 170px; top: 235px; }
-            .ladies .card-right-bottom, .gents .card-right-bottom { height: 170px; top: 235px; }
         }
 
         @media (max-width: 580px) {
@@ -661,13 +620,6 @@
             .location-section { padding: 40px 16px; }
             .location-card { padding: 30px 20px; }
             .calendar-pair { gap: 30px; }
-            .moodboard, .gents { height: 400px; }
-
-            .ladies .card-main, .gents .card-main { height: 215px; top: 12px; }
-            .ladies .card-left-top, .gents .card-left-top { height: 145px; top: 40px; }
-            .ladies .card-right-top, .gents .card-right-top { height: 145px; top: 10px; }
-            .ladies .card-left-bottom, .gents .card-left-bottom { height: 155px; top: 218px; }
-            .ladies .card-right-bottom, .gents .card-right-bottom { height: 155px; top: 218px; }
         }
 
         .final-names .name-item {
@@ -689,28 +641,11 @@
             margin-bottom: 22px;
         }
 
-        #gentsSubtitle,
-        #ladiesSubtitle {
-            font-family: 'Pinyon Script', cursive;
-            font-size: 1.6rem;
-            font-style: italic;
-            font-weight: 400;
-            letter-spacing: 0;
-            text-transform: none;
-            margin-top: 60px;
-            margin-bottom: 22px;
-        }
-
         .title-nowrap { white-space: nowrap; }
 
         @media (max-width: 768px) {
             .final-block {
                 padding-top: 16px;
-            }
-            #gentsSubtitle,
-            #ladiesSubtitle {
-                margin-top: 50px;
-                margin-bottom: 20px;
             }
         }
 
@@ -725,11 +660,6 @@
             }
             .final-block {
                 padding-top: 14px;
-            }
-            #gentsSubtitle,
-            #ladiesSubtitle {
-                margin-top: 45px;
-                margin-bottom: 18px;
             }
             .title-nowrap { font-size: clamp(20px, 5.5vw, 26px); letter-spacing: 2px; }
         }
@@ -884,24 +814,6 @@
             <span class="color-circle color-3"></span>
             <span class="color-circle color-4"></span>
             <span class="color-circle color-5"></span>
-        </div>
-
-        <div class="section-subtitle h-title" id="ladiesSubtitle">Девушки</div>
-        <div class="moodboard ladies">
-            <div class="look-card card-left-top"></div>
-            <div class="look-card card-main"></div>
-            <div class="look-card card-right-top"></div>
-            <div class="look-card card-right-bottom"></div>
-            <div class="look-card card-left-bottom"></div>
-        </div>
-
-        <div class="section-subtitle h-title" id="gentsSubtitle">Мужчины</div>
-        <div class="moodboard gents">
-            <div class="look-card card-left-bottom"></div>
-            <div class="look-card card-right-bottom"></div>
-            <div class="look-card card-main"></div>
-            <div class="look-card card-left-top"></div>
-            <div class="look-card card-right-top"></div>
         </div>
     </div>
 </section>
@@ -1069,13 +981,13 @@
         // === Универсальная плавная анимация для текста и блоков без своих анимаций ===
         const skipSel = '.anim-fade-up, .anim-fade-left, .anim-fade-right, .anim-scale, ' +
                         '.date-number, .dot, .date-label, .calendar-section, .music-player, ' +
-                        '.timeline-item, .timeline-day-title, .look-card, .gallery-item, .line, ' +
+                        '.timeline-item, .timeline-day-title, .gallery-item, .line, ' +
                         '.final-block, .location-section';
         const skipClosest = '.location-section, .final-block';
 
         const revealTargets = document.querySelectorAll(
             '.h-title, .b-text, .form-group, .contact-row, .submit-btn, ' +
-            '.section-subtitle, .color-circle, .color-palette, ' +
+            '.color-circle, .color-palette, ' +
             '.contacts-divider, .timeline-middle-line'
         );
 
@@ -1159,20 +1071,7 @@
             timelineObserver.observe(timeline);
         }
 
-        // 4. Дресс-код (карточки)
-        document.querySelectorAll('.look-card').forEach((card, i) => {
-            const cardObs = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        setTimeout(() => entry.target.classList.add('visible-card'), i * 100);
-                        cardObs.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1 });
-            cardObs.observe(card);
-        });
-
-        // 5. Фотогалерея
+        // 4. Фотогалерея
         const galleryItems = document.querySelectorAll('.gallery-item');
         if (galleryItems.length) {
             const galleryObserver = new IntersectionObserver((entries) => {
@@ -1186,7 +1085,7 @@
             galleryItems.forEach(item => galleryObserver.observe(item));
         }
 
-        // 6. Финальный блок
+        // 5. Финальный блок
         const finalBlock = document.getElementById('finalBlock');
         if (finalBlock) {
             const finalObserver = new IntersectionObserver((entries) => {
@@ -1221,7 +1120,7 @@
             if (e.key === 'Escape') closeLightbox();
         });
 
-        // === Скролл кнопка (плавная прокрутка как в эталоне) ===
+        // === Скролл кнопка ===
         document.getElementById('scrollBtn')?.addEventListener('click', () => {
             document.getElementById('secondScreen')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
