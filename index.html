@@ -348,7 +348,7 @@
             cursor: pointer;
             padding: 0;
         }
-        .music-toggle svg { width: 14px; height: 14px; fill: #1a1a1a; }
+        .music-toggle svg { width: 14px; height: 14px; fill: #1a1a1a; flex-shrink: 0; }
         .music-toggle .icon-pause { display: none; }
         .music-player.playing .music-toggle .icon-play { display: none; }
         .music-player.playing .music-toggle .icon-pause { display: block; }
@@ -453,20 +453,20 @@
         }
         .look-card.visible-card { opacity: 1; transform: scale(1); }
         
-        /* Раскладка карточек — ДЕВУШКИ */
-        .ladies .card-main { width: 48%; height: 300px; left: 26%; top: 0; z-index: 10; background-image: url('4C609015-2A6F-4EA1-BF29-DD86CD7C0205.jpeg'); }
-        .ladies .card-right-top { width: 30%; height: 180px; right: -2%; top: 10px; z-index: 1; background-image: url('343B5D39-170F-4A4E-9CEC-8ED17D5F71F5.jpeg'); }
-        .ladies .card-left-top { width: 32%; height: 200px; left: -4%; top: 50px; z-index: 2; background-image: url('3115075F-C631-4D0D-B962-88B2860CF9C2.jpeg'); }
-        .ladies .card-right-bottom { width: 40%; height: 210px; right: 0; top: 210px; z-index: 3; background-image: url('ADECDD8D-42BF-4DCE-9D89-2B2DCD500472.jpeg'); }
-        .ladies .card-left-bottom { width: 38%; height: 210px; left: 10%; top: 250px; z-index: 4; background-image: url('EC5F4E89-5682-4567-B870-FB05EFEF32CB.jpeg'); }
+        /* Раскладка карточек — ДЕВУШКИ (чуть меньше, больше воздуха между) */
+        .ladies .card-main { width: 42%; height: 250px; left: 29%; top: 15px; z-index: 10; background-image: url('4C609015-2A6F-4EA1-BF29-DD86CD7C0205.jpeg'); }
+        .ladies .card-right-top { width: 24%; height: 155px; right: 1%; top: 20px; z-index: 1; background-image: url('343B5D39-170F-4A4E-9CEC-8ED17D5F71F5.jpeg'); }
+        .ladies .card-left-top { width: 24%; height: 155px; left: 1%; top: 55px; z-index: 2; background-image: url('3115075F-C631-4D0D-B962-88B2860CF9C2.jpeg'); }
+        .ladies .card-right-bottom { width: 33%; height: 170px; right: 6%; top: 270px; z-index: 3; background-image: url('ADECDD8D-42BF-4DCE-9D89-2B2DCD500472.jpeg'); }
+        .ladies .card-left-bottom { width: 31%; height: 170px; left: 10%; top: 270px; z-index: 4; background-image: url('EC5F4E89-5682-4567-B870-FB05EFEF32CB.jpeg'); }
         
-        /* Раскладка карточек — МУЖЧИНЫ */
+        /* Раскладка карточек — МУЖЧИНЫ (чуть меньше, больше воздуха между) */
         .gents { position: relative; width: 100%; height: 480px; }
-        .gents .card-left-bottom { width: 40%; height: 220px; left: 3%; top: 240px; z-index: 2; background-image: url('AC8F5888-ED27-46EE-B6EC-147C5793A1BD.jpeg'); }
-        .gents .card-right-bottom { width: 36%; height: 210px; right: 4%; top: 215px; z-index: 3; background-image: url('7F88B81C-C614-4D63-8AFB-A513F3E385B5.jpeg'); }
-        .gents .card-main { width: 46%; height: 300px; left: 27%; top: 15px; z-index: 10; background-image: url('C3DE6E08-3A55-4858-9AEF-04D65EA458DE.jpeg'); }
-        .gents .card-left-top { width: 28%; height: 155px; left: -4%; top: 65px; z-index: 1; background-image: url('0F645353-B2D5-409F-B723-FF090B98078F.jpeg'); }
-        .gents .card-right-top { width: 34%; height: 200px; right: -6%; top: -10px; z-index: 4; background-image: url('4B945A56-D2CE-4E20-A0E5-C1B67C457927.jpeg'); }
+        .gents .card-main { width: 42%; height: 250px; left: 29%; top: 15px; z-index: 10; background-image: url('C3DE6E08-3A55-4858-9AEF-04D65EA458DE.jpeg'); }
+        .gents .card-left-top { width: 24%; height: 155px; left: 1%; top: 55px; z-index: 1; background-image: url('0F645353-B2D5-409F-B723-FF090B98078F.jpeg'); }
+        .gents .card-right-top { width: 24%; height: 155px; right: 1%; top: 20px; z-index: 4; background-image: url('4B945A56-D2CE-4E20-A0E5-C1B67C457927.jpeg'); }
+        .gents .card-left-bottom { width: 31%; height: 170px; left: 10%; top: 270px; z-index: 2; background-image: url('AC8F5888-ED27-46EE-B6EC-147C5793A1BD.jpeg'); }
+        .gents .card-right-bottom { width: 33%; height: 170px; right: 6%; top: 270px; z-index: 3; background-image: url('7F88B81C-C614-4D63-8AFB-A513F3E385B5.jpeg'); }
 
         /* ============ ФОТОГАЛЕРЕЯ ============ */
         .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
@@ -531,12 +531,12 @@
         .pre-closing { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 300; letter-spacing: 1px; color: #777; margin-bottom: 30px; opacity: 0; transform: translateY(30px); transition: opacity 1.2s cubic-bezier(0.25, 0.8, 0.4, 1), transform 1.2s cubic-bezier(0.25, 0.8, 0.4, 1); }
         .final-block.visible .pre-closing { opacity: 1; transform: translateY(0); }
 
-        /* ============ АНКЕТА ГОСТЯ ============ */
-        .rsvp-container { max-width: 500px; margin: 0 auto; background: #ffffff; padding: 0 24px; }
-        .form-group { margin-bottom: 26px; text-align: left; }
+        /* ============ АНКЕТА ГОСТЯ (возвращена как была) ============ */
+        .rsvp-container { max-width: 500px; margin: 0 auto; background: #ffffff; padding: 0; }
+        .form-group { margin-bottom: 28px; text-align: left; }
         .form-group > label {
-            display: block; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600;
-            letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; color: #1a1a1a; line-height: 1.5;
+            display: block; font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 500;
+            letter-spacing: 0.5px; margin-bottom: 12px; color: #1a1a1a; line-height: 1.5;
         }
         .form-group input[type="text"] {
             width: 100%; padding: 12px 0; border: none; border-bottom: 1px solid #ddd;
@@ -544,12 +544,10 @@
             transition: border 0.2s ease; outline: none; color: #1a1a1a;
         }
         .form-group input[type="text"]:focus { border-bottom-color: #1a1a1a; }
-        .form-group input[type="text"]::placeholder { color: #aaa; }
-        .radio-group, .checkbox-group { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; align-items: flex-start; }
+        .radio-group, .checkbox-group { display: flex; flex-direction: column; gap: 12px; margin-top: 4px; }
         .radio-group label, .checkbox-group label {
-            display: flex; align-items: center; gap: 8px; font-family: 'Montserrat', sans-serif;
-            font-weight: 400; font-size: 13px; color: #1a1a1a; margin-bottom: 0; cursor: pointer;
-            text-transform: none; letter-spacing: 0;
+            display: flex; align-items: center; gap: 10px; font-family: 'Montserrat', sans-serif;
+            font-weight: 300; font-size: 13px; color: #333; margin-bottom: 0; cursor: pointer;
         }
         .radio-group input, .checkbox-group input { width: auto; margin: 0; accent-color: #1a1a1a; flex-shrink: 0; }
         .submit-btn {
@@ -656,6 +654,13 @@
             section { padding: 50px 18px; }
             .location-section { padding: 46px 18px; }
             .moodboard, .gents { height: 420px; }
+
+            /* Карточки дресс-кода на планшете */
+            .ladies .card-main, .gents .card-main { height: 225px; top: 15px; }
+            .ladies .card-left-top, .gents .card-left-top { height: 140px; top: 50px; }
+            .ladies .card-right-top, .gents .card-right-top { height: 140px; top: 18px; }
+            .ladies .card-left-bottom, .gents .card-left-bottom { height: 155px; top: 250px; }
+            .ladies .card-right-bottom, .gents .card-right-bottom { height: 155px; top: 250px; }
         }
 
         @media (max-width: 580px) {
@@ -664,12 +669,13 @@
             .location-card { padding: 30px 20px; }
             .calendar-pair { gap: 30px; }
             .moodboard, .gents { height: 390px; }
-            .ladies .card-main { height: 270px; }
-            .ladies .card-right-bottom { top: 190px; height: 190px; }
-            .ladies .card-left-bottom { top: 225px; height: 190px; }
-            .gents .card-main { height: 270px; }
-            .gents .card-left-bottom { top: 215px; height: 190px; }
-            .gents .card-right-bottom { top: 195px; height: 185px; }
+
+            /* Карточки дресс-кода на телефоне */
+            .ladies .card-main, .gents .card-main { height: 205px; top: 12px; }
+            .ladies .card-left-top, .gents .card-left-top { height: 125px; top: 45px; }
+            .ladies .card-right-top, .gents .card-right-top { height: 125px; top: 15px; }
+            .ladies .card-left-bottom, .gents .card-left-bottom { height: 140px; top: 232px; }
+            .ladies .card-right-bottom, .gents .card-right-bottom { height: 140px; top: 232px; }
         }
 
         /* Финальная корректировка контактов и дресс-кода */
@@ -762,12 +768,12 @@
         <h1 class="title h-title anim-fade-up">ДОРОГИЕ<br>ДРУЗЬЯ!</h1>
         <p class="description-text b-text anim-fade-up">Это официальное приглашение на нашу свадьбу! А получили вы его потому, что мы очень хотим видеть вас в этот день рядом с нами!</p>
 
-        <!-- МУЗЫКА -->
+        <!-- МУЗЫКА: значок слева, текст справа -->
         <div class="music-player" id="musicPlayer">
             <button class="music-toggle" id="musicToggle">
-                <span id="musicText">Включить музыку</span>
                 <svg class="icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                 <svg class="icon-pause" viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/></svg>
+                <span id="musicText">Включить музыку</span>
             </button>
         </div>
 
