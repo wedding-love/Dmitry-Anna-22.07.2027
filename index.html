@@ -453,14 +453,14 @@
         }
         .look-card.visible-card { opacity: 1; transform: scale(1); }
         
-        /* Раскладка карточек — ДЕВУШКИ (чуть меньше, больше воздуха между) */
+        /* Раскладка карточек — ДЕВУШКИ */
         .ladies .card-main { width: 42%; height: 250px; left: 29%; top: 15px; z-index: 10; background-image: url('4C609015-2A6F-4EA1-BF29-DD86CD7C0205.jpeg'); }
         .ladies .card-right-top { width: 24%; height: 155px; right: 1%; top: 20px; z-index: 1; background-image: url('343B5D39-170F-4A4E-9CEC-8ED17D5F71F5.jpeg'); }
         .ladies .card-left-top { width: 24%; height: 155px; left: 1%; top: 55px; z-index: 2; background-image: url('3115075F-C631-4D0D-B962-88B2860CF9C2.jpeg'); }
         .ladies .card-right-bottom { width: 33%; height: 170px; right: 6%; top: 270px; z-index: 3; background-image: url('ADECDD8D-42BF-4DCE-9D89-2B2DCD500472.jpeg'); }
         .ladies .card-left-bottom { width: 31%; height: 170px; left: 10%; top: 270px; z-index: 4; background-image: url('EC5F4E89-5682-4567-B870-FB05EFEF32CB.jpeg'); }
         
-        /* Раскладка карточек — МУЖЧИНЫ (чуть меньше, больше воздуха между) */
+        /* Раскладка карточек — МУЖЧИНЫ */
         .gents { position: relative; width: 100%; height: 480px; }
         .gents .card-main { width: 42%; height: 250px; left: 29%; top: 15px; z-index: 10; background-image: url('C3DE6E08-3A55-4858-9AEF-04D65EA458DE.jpeg'); }
         .gents .card-left-top { width: 24%; height: 155px; left: 1%; top: 55px; z-index: 1; background-image: url('0F645353-B2D5-409F-B723-FF090B98078F.jpeg'); }
@@ -531,7 +531,7 @@
         .pre-closing { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 300; letter-spacing: 1px; color: #777; margin-bottom: 30px; opacity: 0; transform: translateY(30px); transition: opacity 1.2s cubic-bezier(0.25, 0.8, 0.4, 1), transform 1.2s cubic-bezier(0.25, 0.8, 0.4, 1); }
         .final-block.visible .pre-closing { opacity: 1; transform: translateY(0); }
 
-        /* ============ АНКЕТА ГОСТЯ (возвращена как была) ============ */
+        /* ============ АНКЕТА ГОСТЯ ============ */
         .rsvp-container { max-width: 500px; margin: 0 auto; background: #ffffff; padding: 0; }
         .form-group { margin-bottom: 28px; text-align: left; }
         .form-group > label {
@@ -655,7 +655,6 @@
             .location-section { padding: 46px 18px; }
             .moodboard, .gents { height: 420px; }
 
-            /* Карточки дресс-кода на планшете */
             .ladies .card-main, .gents .card-main { height: 225px; top: 15px; }
             .ladies .card-left-top, .gents .card-left-top { height: 140px; top: 50px; }
             .ladies .card-right-top, .gents .card-right-top { height: 140px; top: 18px; }
@@ -670,7 +669,6 @@
             .calendar-pair { gap: 30px; }
             .moodboard, .gents { height: 390px; }
 
-            /* Карточки дресс-кода на телефоне */
             .ladies .card-main, .gents .card-main { height: 205px; top: 12px; }
             .ladies .card-left-top, .gents .card-left-top { height: 125px; top: 45px; }
             .ladies .card-right-top, .gents .card-right-top { height: 125px; top: 15px; }
@@ -711,6 +709,9 @@
             margin-bottom: 22px;
         }
 
+        /* «Дорогие друзья!» в одну строку */
+        .title-nowrap { white-space: nowrap; }
+
         @media (max-width: 768px) {
             .final-block {
                 padding-top: 16px;
@@ -739,6 +740,8 @@
                 margin-top: 45px;
                 margin-bottom: 18px;
             }
+            /* на маленьких экранах «Дорогие друзья!» в одну строку уменьшаем */
+            .title-nowrap { font-size: clamp(20px, 5.5vw, 26px); letter-spacing: 2px; }
         }
 
     </style>
@@ -765,7 +768,7 @@
 <!-- ПРИГЛАШЕНИЕ -->
 <section class="second-screen" id="secondScreen">
     <div class="invitation-container">
-        <h1 class="title h-title anim-fade-up">ДОРОГИЕ<br>ДРУЗЬЯ!</h1>
+        <h1 class="title h-title anim-fade-up title-nowrap">ДОРОГИЕ ДРУЗЬЯ!</h1>
         <p class="description-text b-text anim-fade-up">Это официальное приглашение на нашу свадьбу! А получили вы его потому, что мы очень хотим видеть вас в этот день рядом с нами!</p>
 
         <!-- МУЗЫКА: значок слева, текст справа -->
@@ -1029,7 +1032,7 @@
     <div class="pre-closing">До скорой встречи!<br>С любовью</div>
 </div>
 
-<audio id="bgAudio" src="Женя Трофимов feat. Комната Культуры - Лед, что поет о любви (OST Челюскин Первые).mp3" preload="metadata"></audio>
+<audio id="bgAudio" src="Комната культуры нарезка .mp3" preload="metadata"></audio>
 
 <!-- ЛАЙТБОКС -->
 <div class="lightbox" id="lightbox">
@@ -1210,19 +1213,15 @@
             });
         }
 
-        // === Музыка ===
+        // === Музыка (старт с 0 секунды) ===
         const audio = document.getElementById('bgAudio');
         const player = document.getElementById('musicPlayer');
         const musicToggle = document.getElementById('musicToggle');
         const musicText = document.getElementById('musicText');
-        const START_TIME = 27;
-        let startedOnce = false;
+        const START_TIME = 0;
 
         function seekToStart() {
-            if (!startedOnce) {
-                try { audio.currentTime = START_TIME; } catch (err) {}
-                startedOnce = true;
-            }
+            try { audio.currentTime = START_TIME; } catch (err) {}
         }
 
         function startPlayback() {
