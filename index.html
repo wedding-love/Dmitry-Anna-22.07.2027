@@ -47,30 +47,53 @@
         .anim-fade-up {
             opacity: 0;
             transform: translateY(40px);
-            transition: opacity 1.5s cubic-bezier(0.25, 0.8, 0.4, 1), transform 1.5s cubic-bezier(0.25, 0.8, 0.4, 1);
+            transition: opacity 1.7s cubic-bezier(0.22, 0.61, 0.36, 1), transform 1.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+            will-change: opacity, transform;
         }
         .anim-fade-up.visible { opacity: 1; transform: translateY(0); }
         
         .anim-fade-left {
             opacity: 0;
             transform: translateX(-40px);
-            transition: opacity 1.5s cubic-bezier(0.25, 0.8, 0.4, 1), transform 1.5s cubic-bezier(0.25, 0.8, 0.4, 1);
+            transition: opacity 1.7s cubic-bezier(0.22, 0.61, 0.36, 1), transform 1.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+            will-change: opacity, transform;
         }
         .anim-fade-left.visible { opacity: 1; transform: translateX(0); }
 
         .anim-fade-right {
             opacity: 0;
             transform: translateX(40px);
-            transition: opacity 1.5s cubic-bezier(0.25, 0.8, 0.4, 1), transform 1.5s cubic-bezier(0.25, 0.8, 0.4, 1);
+            transition: opacity 1.7s cubic-bezier(0.22, 0.61, 0.36, 1), transform 1.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+            will-change: opacity, transform;
         }
         .anim-fade-right.visible { opacity: 1; transform: translateX(0); }
 
         .anim-scale {
             opacity: 0;
             transform: scale(0.95);
-            transition: opacity 1.5s ease, transform 1.5s ease;
+            transition: opacity 1.7s cubic-bezier(0.22, 0.61, 0.36, 1), transform 1.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+            will-change: opacity, transform;
         }
         .anim-scale.visible { opacity: 1; transform: scale(1); }
+
+        /* ============ УНИВЕРСАЛЬНАЯ ПЛАВНАЯ АНИМАЦИЯ ============ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(32px);
+            transition: opacity 1.7s cubic-bezier(0.22, 0.61, 0.36, 1), transform 1.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+            will-change: opacity, transform;
+        }
+        .reveal.revealed { opacity: 1; transform: translateY(0); }
+
+        .color-circle.reveal {
+            opacity: 0;
+            transform: translateY(22px) scale(0.85);
+            transition: opacity 1.5s cubic-bezier(0.22, 0.61, 0.36, 1), transform 1.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+        .color-circle.reveal.revealed {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
 
         /* ============ ПЕРВЫЙ ЭКРАН ============ */
         .first-screen {
@@ -433,11 +456,7 @@
 
         .section-subtitle {
             margin: 25px auto 25px;
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 1.8s cubic-bezier(0.25,0.8,0.4,1), transform 1.8s cubic-bezier(0.25,0.8,0.4,1);
         }
-        .section-subtitle.visible { opacity: 1; transform: translateY(0); }
 
         .moodboard { position: relative; width: 100%; height: 480px; margin-bottom: 40px; }
         .look-card {
@@ -453,20 +472,20 @@
         }
         .look-card.visible-card { opacity: 1; transform: scale(1); }
         
-        /* Раскладка карточек — ДЕВУШКИ */
+        /* Раскладка карточек — ДЕВУШКИ (боковые чуть больше) */
         .ladies .card-main { width: 42%; height: 250px; left: 29%; top: 15px; z-index: 10; background-image: url('4C609015-2A6F-4EA1-BF29-DD86CD7C0205.jpeg'); }
-        .ladies .card-right-top { width: 24%; height: 155px; right: 1%; top: 20px; z-index: 1; background-image: url('343B5D39-170F-4A4E-9CEC-8ED17D5F71F5.jpeg'); }
-        .ladies .card-left-top { width: 24%; height: 155px; left: 1%; top: 55px; z-index: 2; background-image: url('3115075F-C631-4D0D-B962-88B2860CF9C2.jpeg'); }
-        .ladies .card-right-bottom { width: 33%; height: 170px; right: 6%; top: 270px; z-index: 3; background-image: url('ADECDD8D-42BF-4DCE-9D89-2B2DCD500472.jpeg'); }
-        .ladies .card-left-bottom { width: 31%; height: 170px; left: 10%; top: 270px; z-index: 4; background-image: url('EC5F4E89-5682-4567-B870-FB05EFEF32CB.jpeg'); }
+        .ladies .card-right-top { width: 27%; height: 170px; right: 0; top: 15px; z-index: 1; background-image: url('343B5D39-170F-4A4E-9CEC-8ED17D5F71F5.jpeg'); }
+        .ladies .card-left-top { width: 27%; height: 170px; left: 0; top: 50px; z-index: 2; background-image: url('3115075F-C631-4D0D-B962-88B2860CF9C2.jpeg'); }
+        .ladies .card-right-bottom { width: 36%; height: 185px; right: 3%; top: 255px; z-index: 3; background-image: url('ADECDD8D-42BF-4DCE-9D89-2B2DCD500472.jpeg'); }
+        .ladies .card-left-bottom { width: 34%; height: 185px; left: 6%; top: 255px; z-index: 4; background-image: url('EC5F4E89-5682-4567-B870-FB05EFEF32CB.jpeg'); }
         
-        /* Раскладка карточек — МУЖЧИНЫ */
+        /* Раскладка карточек — МУЖЧИНЫ (боковые чуть больше) */
         .gents { position: relative; width: 100%; height: 480px; }
         .gents .card-main { width: 42%; height: 250px; left: 29%; top: 15px; z-index: 10; background-image: url('C3DE6E08-3A55-4858-9AEF-04D65EA458DE.jpeg'); }
-        .gents .card-left-top { width: 24%; height: 155px; left: 1%; top: 55px; z-index: 1; background-image: url('0F645353-B2D5-409F-B723-FF090B98078F.jpeg'); }
-        .gents .card-right-top { width: 24%; height: 155px; right: 1%; top: 20px; z-index: 4; background-image: url('4B945A56-D2CE-4E20-A0E5-C1B67C457927.jpeg'); }
-        .gents .card-left-bottom { width: 31%; height: 170px; left: 10%; top: 270px; z-index: 2; background-image: url('AC8F5888-ED27-46EE-B6EC-147C5793A1BD.jpeg'); }
-        .gents .card-right-bottom { width: 33%; height: 170px; right: 6%; top: 270px; z-index: 3; background-image: url('7F88B81C-C614-4D63-8AFB-A513F3E385B5.jpeg'); }
+        .gents .card-left-top { width: 27%; height: 170px; left: 0; top: 50px; z-index: 1; background-image: url('0F645353-B2D5-409F-B723-FF090B98078F.jpeg'); }
+        .gents .card-right-top { width: 27%; height: 170px; right: 0; top: 15px; z-index: 4; background-image: url('4B945A56-D2CE-4E20-A0E5-C1B67C457927.jpeg'); }
+        .gents .card-left-bottom { width: 34%; height: 185px; left: 6%; top: 255px; z-index: 2; background-image: url('AC8F5888-ED27-46EE-B6EC-147C5793A1BD.jpeg'); }
+        .gents .card-right-bottom { width: 36%; height: 185px; right: 3%; top: 255px; z-index: 3; background-image: url('7F88B81C-C614-4D63-8AFB-A513F3E385B5.jpeg'); }
 
         /* ============ ФОТОГАЛЕРЕЯ ============ */
         .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
@@ -631,8 +650,8 @@
         .dresscode-screen .b-text { margin-bottom: 22px; }
         .color-palette { margin-bottom: 24px; }
         .section-subtitle { margin: 18px auto 14px; }
-        .moodboard { height: 450px; margin-bottom: 28px; }
-        .gents { height: 450px; margin-bottom: 0; }
+        .moodboard { height: 465px; margin-bottom: 28px; }
+        .gents { height: 465px; margin-bottom: 0; }
 
         .gallery-screen .b-text { margin-bottom: 22px; }
         .gallery-grid { gap: 12px; }
@@ -653,13 +672,13 @@
         @media (max-width: 768px) {
             section { padding: 50px 18px; }
             .location-section { padding: 46px 18px; }
-            .moodboard, .gents { height: 420px; }
+            .moodboard, .gents { height: 435px; }
 
-            .ladies .card-main, .gents .card-main { height: 225px; top: 15px; }
-            .ladies .card-left-top, .gents .card-left-top { height: 140px; top: 50px; }
-            .ladies .card-right-top, .gents .card-right-top { height: 140px; top: 18px; }
-            .ladies .card-left-bottom, .gents .card-left-bottom { height: 155px; top: 250px; }
-            .ladies .card-right-bottom, .gents .card-right-bottom { height: 155px; top: 250px; }
+            .ladies .card-main, .gents .card-main { height: 235px; top: 15px; }
+            .ladies .card-left-top, .gents .card-left-top { height: 155px; top: 45px; }
+            .ladies .card-right-top, .gents .card-right-top { height: 155px; top: 12px; }
+            .ladies .card-left-bottom, .gents .card-left-bottom { height: 170px; top: 235px; }
+            .ladies .card-right-bottom, .gents .card-right-bottom { height: 170px; top: 235px; }
         }
 
         @media (max-width: 580px) {
@@ -667,13 +686,13 @@
             .location-section { padding: 40px 16px; }
             .location-card { padding: 30px 20px; }
             .calendar-pair { gap: 30px; }
-            .moodboard, .gents { height: 390px; }
+            .moodboard, .gents { height: 400px; }
 
-            .ladies .card-main, .gents .card-main { height: 205px; top: 12px; }
-            .ladies .card-left-top, .gents .card-left-top { height: 125px; top: 45px; }
-            .ladies .card-right-top, .gents .card-right-top { height: 125px; top: 15px; }
-            .ladies .card-left-bottom, .gents .card-left-bottom { height: 140px; top: 232px; }
-            .ladies .card-right-bottom, .gents .card-right-bottom { height: 140px; top: 232px; }
+            .ladies .card-main, .gents .card-main { height: 215px; top: 12px; }
+            .ladies .card-left-top, .gents .card-left-top { height: 145px; top: 40px; }
+            .ladies .card-right-top, .gents .card-right-top { height: 145px; top: 10px; }
+            .ladies .card-left-bottom, .gents .card-left-bottom { height: 155px; top: 218px; }
+            .ladies .card-right-bottom, .gents .card-right-bottom { height: 155px; top: 218px; }
         }
 
         /* Финальная корректировка контактов и дресс-кода */
@@ -696,7 +715,7 @@
             margin-bottom: 22px;
         }
 
-        /* Заголовки «Девушки» / «Мужчины» — с бОльшим отступом сверху */
+        /* Заголовки «Девушки» / «Мужчины» */
         #gentsSubtitle,
         #ladiesSubtitle {
             font-family: 'Pinyon Script', cursive;
@@ -740,7 +759,6 @@
                 margin-top: 45px;
                 margin-bottom: 18px;
             }
-            /* на маленьких экранах «Дорогие друзья!» в одну строку уменьшаем */
             .title-nowrap { font-size: clamp(20px, 5.5vw, 26px); letter-spacing: 2px; }
         }
 
@@ -1057,18 +1075,62 @@
         }, { threshold: 0.1 });
         firstObserver.observe(document.getElementById('firstScreen'));
 
-        // === Общие наблюдатели (Intersection Observer) ===
+        // === Универсальный наблюдатель .anim-* со стаггером ===
         const fadeObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
+                    const parent = entry.target.parentElement;
+                    const siblings = parent
+                        ? Array.from(parent.querySelectorAll('.anim-fade-up, .anim-fade-left, .anim-fade-right, .anim-scale'))
+                        : [entry.target];
+                    const idx = siblings.indexOf(entry.target);
+                    const delay = Math.min(Math.max(0, idx) * 70, 400);
+                    setTimeout(() => entry.target.classList.add('visible'), delay);
+                    fadeObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.15 });
+        }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
 
         document.querySelectorAll('.anim-fade-up, .anim-fade-left, .anim-fade-right, .anim-scale').forEach(el => {
             fadeObserver.observe(el);
         });
+
+        // === Универсальная плавная анимация для текста и блоков без своих анимаций ===
+        const skipSel = '.anim-fade-up, .anim-fade-left, .anim-fade-right, .anim-scale, ' +
+                        '.date-number, .dot, .date-label, .calendar-section, .music-player, ' +
+                        '.timeline-item, .timeline-day-title, .look-card, .gallery-item, .line, ' +
+                        '.final-block, .location-section';
+        const skipClosest = '.location-section, .final-block';
+
+        const revealTargets = document.querySelectorAll(
+            '.h-title, .b-text, .form-group, .contact-row, .submit-btn, ' +
+            '.section-subtitle, .color-circle, .color-palette, ' +
+            '.contacts-divider, .timeline-middle-line'
+        );
+
+        revealTargets.forEach(el => {
+            if (el.matches(skipSel)) return;
+            if (el.closest(skipClosest)) return;
+            if (el.classList.contains('reveal')) return;
+            el.classList.add('reveal');
+        });
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const parent = entry.target.parentElement;
+                    const siblings = parent
+                        ? Array.from(parent.querySelectorAll('.reveal'))
+                        : [entry.target];
+                    const idx = siblings.indexOf(entry.target);
+                    const delay = Math.min(Math.max(0, idx) * 90, 500);
+                    setTimeout(() => entry.target.classList.add('revealed'), delay);
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -20px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
         // 1. Приглашение (линии, даты, календари)
         const secondContainer = document.querySelector('.invitation-container');
