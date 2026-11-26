@@ -286,7 +286,7 @@
         .day {
             font-family: 'Montserrat', sans-serif;
             font-size: 0.9rem;
-            font-weight: 300; /* НЕ ЖИРНЫЙ */
+            font-weight: 300;
             color: #1a1a1a;
             position: relative;
             height: 32px;
@@ -453,19 +453,20 @@
         }
         .look-card.visible-card { opacity: 1; transform: scale(1); }
         
-        /* Раскладка карточек */
-        .ladies .card-main { width: 48%; height: 300px; left: 26%; top: 0; z-index: 10; background-image: url('2.jpg'); }
-        .ladies .card-right-top { width: 30%; height: 180px; right: -2%; top: 10px; z-index: 1; background-image: url('3.jpg'); }
-        .ladies .card-left-top { width: 32%; height: 200px; left: -4%; top: 50px; z-index: 2; background-image: url('1.jpg'); }
-        .ladies .card-right-bottom { width: 40%; height: 210px; right: 0; top: 210px; z-index: 3; background-image: url('4.jpg'); }
-        .ladies .card-left-bottom { width: 38%; height: 210px; left: 10%; top: 250px; z-index: 4; background-image: url('5.jpg'); }
+        /* Раскладка карточек — ДЕВУШКИ */
+        .ladies .card-main { width: 48%; height: 300px; left: 26%; top: 0; z-index: 10; background-image: url('4C609015-2A6F-4EA1-BF29-DD86CD7C0205.jpeg'); }
+        .ladies .card-right-top { width: 30%; height: 180px; right: -2%; top: 10px; z-index: 1; background-image: url('343B5D39-170F-4A4E-9CEC-8ED17D5F71F5.jpeg'); }
+        .ladies .card-left-top { width: 32%; height: 200px; left: -4%; top: 50px; z-index: 2; background-image: url('3115075F-C631-4D0D-B962-88B2860CF9C2.jpeg'); }
+        .ladies .card-right-bottom { width: 40%; height: 210px; right: 0; top: 210px; z-index: 3; background-image: url('ADECDD8D-42BF-4DCE-9D89-2B2DCD500472.jpeg'); }
+        .ladies .card-left-bottom { width: 38%; height: 210px; left: 10%; top: 250px; z-index: 4; background-image: url('EC5F4E89-5682-4567-B870-FB05EFEF32CB.jpeg'); }
         
+        /* Раскладка карточек — МУЖЧИНЫ */
         .gents { position: relative; width: 100%; height: 480px; }
-        .gents .card-left-bottom { width: 40%; height: 220px; left: 3%; top: 240px; z-index: 2; background-image: url('10.jpg'); }
-        .gents .card-right-bottom { width: 36%; height: 210px; right: 4%; top: 215px; z-index: 3; background-image: url('9.jpg'); }
-        .gents .card-main { width: 46%; height: 300px; left: 27%; top: 15px; z-index: 10; background-image: url('6.jpg'); }
-        .gents .card-left-top { width: 28%; height: 155px; left: -4%; top: 65px; z-index: 1; background-image: url('7.jpg'); }
-        .gents .card-right-top { width: 34%; height: 200px; right: -6%; top: -10px; z-index: 4; background-image: url('8.jpg'); }
+        .gents .card-left-bottom { width: 40%; height: 220px; left: 3%; top: 240px; z-index: 2; background-image: url('AC8F5888-ED27-46EE-B6EC-147C5793A1BD.jpeg'); }
+        .gents .card-right-bottom { width: 36%; height: 210px; right: 4%; top: 215px; z-index: 3; background-image: url('7F88B81C-C614-4D63-8AFB-A513F3E385B5.jpeg'); }
+        .gents .card-main { width: 46%; height: 300px; left: 27%; top: 15px; z-index: 10; background-image: url('C3DE6E08-3A55-4858-9AEF-04D65EA458DE.jpeg'); }
+        .gents .card-left-top { width: 28%; height: 155px; left: -4%; top: 65px; z-index: 1; background-image: url('0F645353-B2D5-409F-B723-FF090B98078F.jpeg'); }
+        .gents .card-right-top { width: 34%; height: 200px; right: -6%; top: -10px; z-index: 4; background-image: url('4B945A56-D2CE-4E20-A0E5-C1B67C457927.jpeg'); }
 
         /* ============ ФОТОГАЛЕРЕЯ ============ */
         .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
@@ -509,7 +510,7 @@
         .name-item { font-family: 'Lighthaus', 'Quicksand', sans-serif; font-weight: 300; font-size: 46px; text-transform: uppercase; letter-spacing: 5px; line-height: 1.1; color: #121212; }
         .ampersand-item { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 38px; font-weight: 400; color: #121212; margin: 12px 0; }
 
-        /* ============ ФИНАЛЬНЫЙ БЛОК (Имена и прощание) ============ */
+        /* ============ ФИНАЛЬНЫЙ БЛОК ============ */
         .final-block {
             background: #fff;
             padding: 60px 20px 80px;
@@ -530,13 +531,12 @@
         .pre-closing { font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 300; letter-spacing: 1px; color: #777; margin-bottom: 30px; opacity: 0; transform: translateY(30px); transition: opacity 1.2s cubic-bezier(0.25, 0.8, 0.4, 1), transform 1.2s cubic-bezier(0.25, 0.8, 0.4, 1); }
         .final-block.visible .pre-closing { opacity: 1; transform: translateY(0); }
 
-
         /* ============ АНКЕТА ГОСТЯ ============ */
-        .rsvp-container { max-width: 500px; margin: 0 auto; background: #ffffff; padding: 0; }
-        .form-group { margin-bottom: 28px; text-align: left; }
+        .rsvp-container { max-width: 500px; margin: 0 auto; background: #ffffff; padding: 0 24px; }
+        .form-group { margin-bottom: 26px; text-align: left; }
         .form-group > label {
-            display: block; font-family: 'Montserrat', sans-serif; font-size: 13px; font-weight: 500;
-            letter-spacing: 0.5px; margin-bottom: 12px; color: #1a1a1a; line-height: 1.5;
+            display: block; font-family: 'Montserrat', sans-serif; font-size: 12px; font-weight: 600;
+            letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; color: #1a1a1a; line-height: 1.5;
         }
         .form-group input[type="text"] {
             width: 100%; padding: 12px 0; border: none; border-bottom: 1px solid #ddd;
@@ -544,10 +544,12 @@
             transition: border 0.2s ease; outline: none; color: #1a1a1a;
         }
         .form-group input[type="text"]:focus { border-bottom-color: #1a1a1a; }
-        .radio-group, .checkbox-group { display: flex; flex-direction: column; gap: 12px; margin-top: 4px; }
+        .form-group input[type="text"]::placeholder { color: #aaa; }
+        .radio-group, .checkbox-group { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; align-items: flex-start; }
         .radio-group label, .checkbox-group label {
-            display: flex; align-items: center; gap: 10px; font-family: 'Montserrat', sans-serif;
-            font-weight: 300; font-size: 13px; color: #333; margin-bottom: 0; cursor: pointer;
+            display: flex; align-items: center; gap: 8px; font-family: 'Montserrat', sans-serif;
+            font-weight: 400; font-size: 13px; color: #1a1a1a; margin-bottom: 0; cursor: pointer;
+            text-transform: none; letter-spacing: 0;
         }
         .radio-group input, .checkbox-group input { width: auto; margin: 0; accent-color: #1a1a1a; flex-shrink: 0; }
         .submit-btn {
@@ -584,10 +586,7 @@
             .dmitry-name { margin-left: 86px; }
         }
 
-
         /* ============ ЕДИНАЯ СИСТЕМА ОТСТУПОВ ============ */
-        /* Общий ритм: одинаковые вертикальные поля секций и умеренные
-           расстояния между заголовками, текстом и основным содержимым. */
         section {
             padding: 56px 20px;
         }
@@ -673,9 +672,7 @@
             .gents .card-right-bottom { top: 195px; height: 185px; }
         }
 
-    
         /* Финальная корректировка контактов и дресс-кода */
-        /* Имена внизу — в том же размере и типографике, что заголовок «Контакты» */
         .final-names .name-item {
             font-family: 'Lighthaus', 'Quicksand', sans-serif;
             font-weight: 400;
@@ -684,7 +681,6 @@
             line-height: 1.2;
         }
 
-        /* Уменьшаем расстояние от разделителя контактов до имён */
         .contacts-divider {
             height: 30px;
             margin: 0 auto 10px;
@@ -696,8 +692,7 @@
             margin-bottom: 22px;
         }
 
-        /* «Мужчины» — как подпись «Банкет»: рукописный курсивный шрифт
-           того же размера; немного больше воздуха перед заголовком и фото */
+        /* Заголовки «Девушки» / «Мужчины» — с бОльшим отступом сверху */
         #gentsSubtitle,
         #ladiesSubtitle {
             font-family: 'Pinyon Script', cursive;
@@ -706,7 +701,7 @@
             font-weight: 400;
             letter-spacing: 0;
             text-transform: none;
-            margin-top: 34px;
+            margin-top: 60px;
             margin-bottom: 22px;
         }
 
@@ -716,7 +711,7 @@
             }
             #gentsSubtitle,
             #ladiesSubtitle {
-                margin-top: 32px;
+                margin-top: 50px;
                 margin-bottom: 20px;
             }
         }
@@ -735,12 +730,12 @@
             }
             #gentsSubtitle,
             #ladiesSubtitle {
-                margin-top: 30px;
+                margin-top: 45px;
                 margin-bottom: 18px;
             }
         }
 
-</style>
+    </style>
 </head>
 <body>
 
@@ -767,7 +762,7 @@
         <h1 class="title h-title anim-fade-up">ДОРОГИЕ<br>ДРУЗЬЯ!</h1>
         <p class="description-text b-text anim-fade-up">Это официальное приглашение на нашу свадьбу! А получили вы его потому, что мы очень хотим видеть вас в этот день рядом с нами!</p>
 
-        <!-- МУЗЫКА (Простая) -->
+        <!-- МУЗЫКА -->
         <div class="music-player" id="musicPlayer">
             <button class="music-toggle" id="musicToggle">
                 <span id="musicText">Включить музыку</span>
@@ -927,7 +922,7 @@
     </div>
 </section>
 
-<!-- ПОЖЕЛАНИЯ (Без имен и прощания) -->
+<!-- ПОЖЕЛАНИЯ -->
 <section class="wishes-screen" id="wishesScreen">
     <div class="container">
         <h2 class="h-title anim-fade-up">Пожелания</h2>
@@ -1018,7 +1013,7 @@
     </div>
 </section>
 
-<!-- ФИНАЛЬНЫЙ БЛОК (Имена и прощание - В САМОМ КОНЦУ) -->
+<!-- ФИНАЛЬНЫЙ БЛОК -->
 <div class="final-block" id="finalBlock">
     <div class="final-names">
         <span class="name-item name-left" id="finalAnna">Анна</span>
@@ -1054,8 +1049,6 @@
         firstObserver.observe(document.getElementById('firstScreen'));
 
         // === Общие наблюдатели (Intersection Observer) ===
-        
-        // Наблюдатель для простых элементов с классом anim-fade-up/down/left/right
         const fadeObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1068,15 +1061,12 @@
             fadeObserver.observe(el);
         });
 
-        // Специфичные сложные анимации
-
         // 1. Приглашение (линии, даты, календари)
         const secondContainer = document.querySelector('.invitation-container');
         if (secondContainer) {
             const invitationObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        // Запускаем последовательность вручную
                         document.querySelector('.line-top')?.classList.add('visible');
                         setTimeout(() => document.querySelectorAll('.date-number').forEach(el => el.classList.add('visible')), 300);
                         setTimeout(() => document.querySelectorAll('.dot').forEach(el => el.classList.add('visible')), 600);
@@ -1087,10 +1077,7 @@
                         setTimeout(() => document.querySelector('.line-bottom')?.classList.add('visible'), 1000);
                         setTimeout(() => document.getElementById('calendar1')?.classList.add('visible'), 1400);
                         setTimeout(() => document.getElementById('calendar2')?.classList.add('visible'), 1800);
-                        
-                        // Музыкальный плеер
                         setTimeout(() => document.getElementById('musicPlayer')?.classList.add('visible'), 500);
-                        
                         invitationObserver.disconnect();
                     }
                 });
@@ -1119,10 +1106,7 @@
                 entries.forEach(e => {
                     if (e.isIntersecting) {
                         timeline.classList.add('visible');
-                        // Заголовки дней
                         document.querySelectorAll('.timeline-day-title').forEach(t => t.classList.add('visible'));
-                        
-                        // Элементы списка по очереди
                         document.querySelectorAll('.timeline-item').forEach((item, i) => {
                             setTimeout(() => item.classList.add('visible'), 200 + i * 180);
                         });
@@ -1138,7 +1122,7 @@
             const cardObs = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        setTimeout(() => entry.target.classList.add('visible-card'), i * 100); // Небольшая задержка для каскада
+                        setTimeout(() => entry.target.classList.add('visible-card'), i * 100);
                         cardObs.unobserve(entry.target);
                     }
                 });
@@ -1211,7 +1195,6 @@
                     alert('Пожалуйста, укажите ваше имя');
                     return;
                 }
-                // Здесь должна быть реальная отправка
                 messageDiv.style.display = 'block';
                 setTimeout(() => { messageDiv.style.opacity = '1'; }, 10);
                 setTimeout(() => {
@@ -1221,7 +1204,7 @@
             });
         }
 
-        // === Музыка (Простая логика) ===
+        // === Музыка ===
         const audio = document.getElementById('bgAudio');
         const player = document.getElementById('musicPlayer');
         const musicToggle = document.getElementById('musicToggle');
